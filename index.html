@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+<meta content='width=device-width, initial-scale=1' name='viewport'/>
+<b:include data='blog' name='all-head-content'/>
+<b:skin><![CDATA[/* */]]></b:skin>
+<link href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap' rel='stylesheet'/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;min-height:100vh;background:#080c10;color:#f8fafc;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none}
+
+/* BG */
+.page-wrap{min-height:100vh;background:#080c10;position:relative}
+.bg-glow{position:absolute;top:0;left:0;right:0;height:100vh;background:radial-gradient(ellipse 120% 60% at 50% 0%,rgba(22,163,74,0.15) 0%,transparent 60%);pointer-events:none;z-index:0}
+.bg-grid{position:absolute;top:0;left:0;right:0;height:100vh;background-image:linear-gradient(rgba(34,197,94,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(34,197,94,0.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+
+/* NAV */
+.nav-wrap{position:relative;z-index:10;padding:20px;display:flex;justify-content:center}
+.nav{display:inline-flex;align-items:center;gap:32px;background:rgba(5,14,5,0.8);border:1px solid rgba(34,197,94,0.15);border-radius:100px;padding:10px 10px 10px 24px;backdrop-filter:blur(20px);min-width:700px;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:800;color:#fff}
+.nav-dot{width:8px;height:8px;border-radius:50%;background:#4ade80}
+.nav-links{display:flex;gap:4px}
+.nav-links a{font-size:13px;color:#64748b;padding:7px 14px;border-radius:100px;transition:all 0.2s;font-weight:500}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,0.07)}
+.nav-btn{background:#22c55e;color:#000;font-size:13px;font-weight:700;padding:10px 20px;border-radius:100px;transition:all 0.2s}
+.nav-btn:hover{background:#16a34a}
+
+/* HERO */
+.hero{position:relative;z-index:1;text-align:center;padding:80px 20px 60px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);color:#4ade80;padding:6px 16px;border-radius:100px;font-size:11px;font-weight:600;letter-spacing:0.06em;margin-bottom:28px}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:#4ade80}
+.hero h1{font-size:clamp(42px,7vw,84px);font-weight:900;letter-spacing:-0.04em;line-height:1.0;margin-bottom:20px}
+.hero h1 .green{color:#4ade80}
+.hero-desc{font-size:clamp(14px,1.8vw,17px);color:#94a3b8;line-height:1.7;max-width:500px;margin:0 auto 40px;font-weight:400}
+.dl-btn{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.07);color:#fff;padding:16px 44px;border-radius:100px;font-size:17px;font-weight:700;border:1px solid rgba(255,255,255,0.15);transition:all 0.2s;letter-spacing:-0.01em}
+.dl-btn:hover{background:rgba(255,255,255,0.12);transform:translateY(-2px)}
+
+/* MOCKUP */
+.mockup-wrap{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 20px 80px}
+.mockup-glow{text-align:center;height:60px;background:radial-gradient(ellipse 60% 100% at 50% 0%,rgba(34,197,94,0.12),transparent);margin-bottom:-10px}
+.mockup{background:#0a1408;border:1px solid rgba(34,197,94,0.18);border-radius:14px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,0.6)}
+.m-bar{background:#050a05;border-bottom:1px solid rgba(34,197,94,0.1);padding:0 18px;height:48px;display:flex;align-items:center;justify-content:space-between}
+.m-logo{font-size:14px;font-weight:800;color:#fff;display:flex;align-items:center;gap:8px}
+.m-ver{background:rgba(255,255,255,0.12);color:#fff;font-size:9px;padding:2px 8px;border-radius:20px;font-weight:600}
+.m-chip{display:flex;align-items:center;gap:5px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);border-radius:20px;padding:4px 10px;font-size:10px;color:#4ade80}
+.m-cdot{width:5px;height:5px;border-radius:50%;background:#4ade80}
+.m-body{display:grid;grid-template-columns:185px 1fr;min-height:370px}
+.m-side{background:#040904;border-right:1px solid rgba(34,197,94,0.07);padding:12px 8px;display:flex;flex-direction:column;gap:2px}
+.m-slbl{font-size:8px;color:#1a3a1a;letter-spacing:0.14em;text-transform:uppercase;padding:8px 10px 4px;font-weight:600}
+.m-ni{display:flex;align-items:center;gap:7px;padding:7px 10px;border-radius:6px;font-size:11px;color:#2d4a2d}
+.m-ni.on{background:rgba(34,197,94,0.1);color:#4ade80;font-weight:600}
+.m-foot{margin-top:auto;padding:10px;border-top:1px solid rgba(34,197,94,0.06);font-size:9px;color:#1a3a1a;line-height:1.8}
+.m-main{padding:16px;display:flex;flex-direction:column;gap:12px;background:rgba(8,16,8,0.5)}
+.m-title{font-size:16px;font-weight:800;color:#fff;letter-spacing:-0.02em}
+.m-sub{display:inline-block;font-size:9px;font-weight:600;background:rgba(34,197,94,0.1);color:#4ade80;padding:2px 10px;border-radius:20px;margin-top:2px}
+.m-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.m-sc{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.05);border-radius:7px;padding:9px 11px;position:relative;overflow:hidden}
+.m-sc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px}
+.m-sc:nth-child(1)::after{background:#22c55e}
+.m-sc:nth-child(2)::after{background:#4ade80}
+.m-sc:nth-child(3)::after{background:#f59e0b}
+.m-sc:nth-child(4)::after{background:#3b82f6}
+.m-sl{font-size:7px;color:#374151;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:3px;font-weight:600}
+.m-sv{font-size:16px;font-weight:800;letter-spacing:-0.03em}
+.m-ss{font-size:8px;color:#374151;margin-top:1px}
+.m-2col{display:grid;grid-template-columns:300px 1fr;gap:10px}
+.m-panel{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:8px;overflow:hidden}
+.m-phdr{background:rgba(34,197,94,0.05);border-bottom:1px solid rgba(34,197,94,0.07);padding:7px 12px;font-size:10px;font-weight:700;color:#4ade80}
+.m-pb{padding:10px;display:flex;flex-direction:column;gap:7px}
+.m-2g{display:grid;grid-template-columns:1fr 1fr;gap:5px}
+.m-fi{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.05);border-radius:5px;padding:6px 9px}
+.m-fl{font-size:7px;color:#374151;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:2px;font-weight:600}
+.m-fv{font-size:10px;color:#4b5563}
+.m-rb{background:#22c55e;color:#000;border-radius:6px;font-size:10px;font-weight:800;padding:8px;text-align:center;letter-spacing:0.05em}
+.m-pr{margin-top:4px}
+.m-prl{display:flex;justify-content:space-between;font-size:8px;color:#374151;margin-bottom:3px}
+.m-prt{height:5px;background:rgba(34,197,94,0.08);border-radius:3px;overflow:hidden}
+.m-prf{height:100%;width:40%;background:linear-gradient(90deg,#22c55e,#4ade80);border-radius:3px}
+.m-con{background:#020602;border:1px solid rgba(34,197,94,0.07);border-radius:8px;overflow:hidden}
+.m-chdr{background:rgba(34,197,94,0.04);border-bottom:1px solid rgba(34,197,94,0.07);padding:7px 11px;display:flex;align-items:center;gap:6px}
+.m-dots{display:flex;gap:4px}
+.md{width:7px;height:7px;border-radius:50%}
+.md1{background:#ef4444}.md2{background:#f59e0b}.md3{background:#22c55e}
+.m-ct{font-size:9px;color:#374151;letter-spacing:0.08em;font-weight:600}
+.m-cl{padding:10px 11px;display:flex;flex-direction:column;gap:4px}
+.ml{font-size:8px;display:flex;gap:7px;font-family:monospace}
+.mlt{color:#1a3a1a}.mli{color:#3b82f6}.mlo{color:#22c55e}.mlw{color:#f59e0b}.mlx{color:#374151}
+
+/* TICKER */
+.ticker{border-top:1px solid rgba(34,197,94,0.08);border-bottom:1px solid rgba(34,197,94,0.08);padding:14px 0;overflow:hidden;background:rgba(5,14,5,0.4);position:relative;z-index:1}
+.ticker-inner{display:flex;gap:48px;width:max-content}
+.t-item{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:500;color:#64748b;white-space:nowrap}
+.t-sep{color:#22c55e}
+
+/* FEATURES */
+.features{position:relative;z-index:1;padding:90px 20px;max-width:1080px;margin:0 auto;text-align:center}
+.eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.15);color:#4ade80;padding:5px 14px;border-radius:100px;font-size:11px;font-weight:600;letter-spacing:0.08em;margin-bottom:20px}
+.sec-h{font-size:clamp(30px,4vw,52px);font-weight:900;letter-spacing:-0.04em;line-height:1.05;margin-bottom:16px}
+.sec-p{font-size:15px;color:#94a3b8;line-height:1.7;max-width:480px;margin:0 auto 56px}
+.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.1);border-radius:18px;overflow:hidden;text-align:left}
+.fc{background:#080c10;padding:32px 26px;transition:background 0.2s}
+.fc:hover{background:#0c1118}
+.fc-icon{width:42px;height:42px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.18);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:16px}
+.fc-title{font-size:15px;font-weight:700;margin-bottom:8px;letter-spacing:-0.01em}
+.fc-desc{font-size:13px;color:#94a3b8;line-height:1.6}
+
+/* HOW */
+.how{position:relative;z-index:1;padding:90px 20px;max-width:1080px;margin:0 auto;border-top:1px solid rgba(34,197,94,0.07);display:grid;grid-template-columns:280px 1fr;gap:80px;align-items:start}
+.how-steps{display:flex;flex-direction:column}
+.hs{display:flex;gap:18px;padding:24px 0;border-bottom:1px solid rgba(34,197,94,0.07)}
+.hs:first-child{padding-top:0}
+.hs:last-child{border-bottom:none}
+.hs-num{font-size:11px;font-weight:700;color:#1a3a1a;min-width:32px;padding-top:2px;letter-spacing:0.04em}
+.hs-title{font-size:14px;font-weight:700;margin-bottom:6px;letter-spacing:-0.01em}
+.hs-desc{font-size:13px;color:#94a3b8;line-height:1.6}
+
+/* CONTACT */
+.contact{position:relative;z-index:1;padding:100px 20px;text-align:center;border-top:1px solid rgba(34,197,94,0.07)}
+.wa-btn{display:inline-flex;align-items:center;gap:12px;background:#22c55e;color:#000;padding:15px 38px;border-radius:100px;font-size:15px;font-weight:800;transition:all 0.2s;margin-top:36px}
+.wa-btn:hover{background:#16a34a;transform:translateY(-2px)}
+.wa-ic{width:24px;height:24px;background:rgba(0,0,0,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px}
+.contact-note{margin-top:16px;font-size:12px;color:#1a3a1a;font-weight:500}
+
+/* FOOTER */
+.footer{position:relative;z-index:1;border-top:1px solid rgba(34,197,94,0.07);padding:22px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.f-logo{font-size:13px;font-weight:800;color:#64748b}
+.f-copy{font-size:11px;color:#1a3a1a;font-weight:500}
+
+@media(max-width:768px){
+.nav-links{display:none}
+.m-body{grid-template-columns:1fr}
+.m-side{display:none}
+.m-2col{grid-template-columns:1fr}
+.m-stats{grid-template-columns:repeat(2,1fr)}
+.feat-grid{grid-template-columns:1fr}
+.how{grid-template-columns:1fr;gap:40px}
+.footer{flex-direction:column;text-align:center;padding:20px}
+}
+</style>
+</head>
+<body>
+<b:section id='main' class='main' maxwidgets='1' showaddelement='no'>
+<b:widget id='HTML1' locked='false' title='' type='HTML'>
+<b:widget-settings/>
+<b:includable id='main'>
+
+<div class='page-wrap'>
+<div class='bg-glow'></div>
+<div class='bg-grid'></div>
+
+<!-- NAV -->
+<div class='nav-wrap'>
+  <div class='nav'>
+    <div class='nav-logo'><img src='data:image/png;base64,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' style='width:28px;height:28px;border-radius:6px'/>FBM Prime</div>
+    <div class='nav-links'>
+      <a href='#features'>Features</a>
+      <a href='#how'>How it works</a>
+      <a href='#contact'>Contact</a>
+    </div>
+    <a class='nav-btn' href='https://wa.me/923241703901' target='_blank'>Get Access</a>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class='hero'>
+  <div class='hero-badge'><div class='badge-dot'></div>Windows · ADB Powered · v1.0.0</div>
+  <h1>Automate Your<br/><span class='green'>Bulk Account</span><br/>Logins</h1>
+  <p class='hero-desc'>FBM Prime connects to your Android phone and logs in hundreds of Messenger and Facebook clone accounts automatically, with full 2FA support.</p>
+  <a class='dl-btn' href='https://github.com/mrtechpk1-ai/FBMprime/releases/download/v1.0.0/FBM_Prime.exe'>&#11015; Download Now</a>
+</div>
+
+<!-- MOCKUP -->
+<div class='mockup-wrap'>
+  <div class='mockup-glow'></div>
+  <div class='mockup'>
+    <div class='m-bar'>
+      <div class='m-logo'>FBM Prime &#9823; <span class='m-ver'>v1.0.0</span></div>
+      <div class='m-chip'><div class='m-cdot'></div>Device Connected</div>
+    </div>
+    <div class='m-body'>
+      <div class='m-side'>
+        <div class='m-slbl'>Messenger</div>
+        <div class='m-ni on'>&#128172; Automation</div>
+        <div class='m-slbl'>Facebook</div>
+        <div class='m-ni'>&#128309; Automation</div>
+        <div class='m-slbl'>Tools</div>
+        <div class='m-ni'>&#128260; Package Sorter</div>
+        <div class='m-foot'>Made by Md_Ahmed.Dev<br/>FBM Prime 2025</div>
+      </div>
+      <div class='m-main'>
+        <div>
+          <div class='m-title'>Messenger Dashboard</div>
+          <div class='m-sub'>Multi Login Android Bot</div>
+        </div>
+        <div class='m-stats'>
+          <div class='m-sc'><div class='m-sl'>Total</div><div class='m-sv' style='color:#f1f5f9'>247</div><div class='m-ss'>accounts</div></div>
+          <div class='m-sc'><div class='m-sl'>Success</div><div class='m-sv' style='color:#4ade80'>198</div><div class='m-ss' style='color:#16a34a'>80% rate</div></div>
+          <div class='m-sc'><div class='m-sl'>Failed</div><div class='m-sv' style='color:#f59e0b'>12</div><div class='m-ss' style='color:#f59e0b'>4.9%</div></div>
+          <div class='m-sc'><div class='m-sl'>Speed</div><div class='m-sv' style='color:#60a5fa'>14</div><div class='m-ss'>acc/min</div></div>
+        </div>
+        <div class='m-2col'>
+          <div class='m-panel'>
+            <div class='m-phdr'>&#9881; Control Panel</div>
+            <div class='m-pb'>
+              <div class='m-2g'>
+                <div class='m-fi'><div class='m-fl'>Start From</div><div class='m-fv'>1</div></div>
+                <div class='m-fi'><div class='m-fl'>End At</div><div class='m-fv' style='color:#1a3a1a'>All</div></div>
+              </div>
+              <div class='m-rb'>&#9654; START AUTOMATION</div>
+              <div class='m-pr'>
+                <div class='m-prl'><span>Progress</span><span>98 / 247</span></div>
+                <div class='m-prt'><div class='m-prf'></div></div>
+              </div>
+            </div>
+          </div>
+          <div class='m-con'>
+            <div class='m-chdr'>
+              <div class='m-dots'><div class='md md1'></div><div class='md md2'></div><div class='md md3'></div></div>
+              <div class='m-ct'>LIVE CONSOLE</div>
+            </div>
+            <div class='m-cl'>
+              <div class='ml'><span class='mlt'>03:14:18</span><span class='mli'>[INF]</span><span class='mlx'>Starting — 247 accounts</span></div>
+              <div class='ml'><span class='mlt'>03:14:22</span><span class='mlo'>[OK]</span><span class='mlx'>Messenger 01 — Success</span></div>
+              <div class='ml'><span class='mlt'>03:14:28</span><span class='mlo'>[OK]</span><span class='mlx'>Messenger 02 — Success</span></div>
+              <div class='ml'><span class='mlt'>03:14:34</span><span class='mlo'>[OK]</span><span class='mlx'>Messenger 03 — 2FA handled</span></div>
+              <div class='ml'><span class='mlt'>03:14:39</span><span class='mlw'>[WRN]</span><span class='mlx'>Messenger 04 — Retrying...</span></div>
+              <div class='ml'><span class='mlt'>03:14:44</span><span class='mlo'>[OK]</span><span class='mlx'>Messenger 04 — Success</span></div>
+              <div class='ml'><span class='mlt'>03:14:50</span><span class='mlo'>[OK]</span><span class='mlx'>Messenger 05 — Success</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class='ticker'>
+  <div class='ticker-inner' id='tickerInner'>
+    <div class='t-item'><span class='t-sep'>&#10022;</span>Messenger Clone Login</div>
+    <div class='t-item'><span class='t-sep'>&#10022;</span>Facebook Clone Login</div>
+    <div class='t-item'><span class='t-sep'>&#10022;</span>2FA Auto Handle</div>
+    <div class='t-item'><span class='t-sep'>&#10022;</span>ADB Powered</div>
+    <div class='t-item'><span class='t-sep'>&#10022;</span>Excel / CSV Import</div>
+    <div class='t-item'><span class='t-sep'>&#10022;</span>Live Console</div>
+    <div class='t-item'><span class='t-sep'>&#10022;</span>Package Sorter</div>
+    <div class='t-item'><span class='t-sep'>&#10022;</span>License System</div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div class='features' id='features'>
+  <div class='eyebrow'>&#10022; Features</div>
+  <h2 class='sec-h'>Everything you need.<br/>Nothing you don't.</h2>
+  <p class='sec-p'>FBM Prime handles the entire login flow from app launch to session save without you lifting a finger.</p>
+  <div class='feat-grid'>
+    <div class='fc'><div class='fc-icon'>&#128172;</div><div class='fc-title'>Messenger Auto Login</div><div class='fc-desc'>Full support for all Messenger clone apps. Detects login screen, inputs credentials, handles session save automatically.</div></div>
+    <div class='fc'><div class='fc-icon'>&#128309;</div><div class='fc-title'>Facebook Auto Login</div><div class='fc-desc'>Same power for Facebook clones — katana, odpa, opma. Separate dashboard, identical automation experience.</div></div>
+    <div class='fc'><div class='fc-icon'>&#128272;</div><div class='fc-title'>2FA Auto Handle</div><div class='fc-desc'>Google Authenticator accounts? FBM Prime generates TOTP codes automatically from stored secret keys.</div></div>
+    <div class='fc'><div class='fc-icon'>&#128194;</div><div class='fc-title'>Bulk Account Loading</div><div class='fc-desc'>Import hundreds of accounts from Excel, CSV, or TXT files. Or paste directly using the built-in bulk add popup.</div></div>
+    <div class='fc'><div class='fc-icon'>&#128225;</div><div class='fc-title'>Live Console and Stats</div><div class='fc-desc'>Every action logged in real time. Track total accounts, success rate, failures, and speed from one clean dashboard.</div></div>
+    <div class='fc'><div class='fc-icon'>&#128260;</div><div class='fc-title'>Package Sorter</div><div class='fc-desc'>Paste raw package lists, auto-sort and label them. Export as TXT or Excel ready to load in one click.</div></div>
+  </div>
+</div>
+
+<!-- HOW -->
+<div class='how' id='how'>
+  <div>
+    <div class='eyebrow'>&#10022; How it works</div>
+    <h2 class='sec-h'>Up and running<br/>in minutes.</h2>
+    <p class='sec-p' style='margin:0'>No technical background needed. If you can plug in a USB cable, you can use FBM Prime.</p>
+  </div>
+  <div class='how-steps'>
+    <div class='hs'><div class='hs-num'>01 —</div><div><div class='hs-title'>Get your license key</div><div class='hs-desc'>Message us on WhatsApp, pick a plan, and receive your activation key. Takes under 2 minutes.</div></div></div>
+    <div class='hs'><div class='hs-num'>02 —</div><div><div class='hs-title'>Connect your phone</div><div class='hs-desc'>Enable USB Debugging on Android and plug in with a data cable. One-time setup.</div></div></div>
+    <div class='hs'><div class='hs-num'>03 —</div><div><div class='hs-title'>Load your accounts</div><div class='hs-desc'>Upload your Excel or CSV file or paste accounts directly into the bulk add window.</div></div></div>
+    <div class='hs'><div class='hs-num'>04 —</div><div><div class='hs-title'>Hit Start and walk away</div><div class='hs-desc'>FBM Prime handles app launch, login, 2FA, and session save. Come back when done.</div></div></div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class='contact' id='contact'>
+  <div class='eyebrow'>&#10022; Get Started</div>
+  <h2 class='sec-h'>Ready to automate?</h2>
+  <p class='sec-p' style='margin:16px auto 0'>Contact us on WhatsApp for your license key, pricing, or any questions. We respond fast.</p>
+  <a class='wa-btn' href='https://wa.me/923241703901' target='_blank'><div class='wa-ic'>&#128172;</div>WhatsApp — 0324-1703901</a>
+  <p class='contact-note'>Mon – Sat · 10:00 AM – 10:00 PM PKT</p>
+</div>
+
+<!-- FOOTER -->
+<div class='footer'>
+  <div class='f-logo'>FBM Prime · Md_Ahmed.Dev</div>
+  <div class='f-copy'>2025 All rights reserved</div>
+</div>
+
+</div>
+
+</b:includable>
+</b:widget>
+</b:section>
+
+<script>//<![CDATA[
+// Ticker animation
+var ticker = document.getElementById('tickerInner');
+if(ticker){
+  var clone = ticker.cloneNode(true);
+  ticker.parentNode.appendChild(clone);
+  var pos = 0;
+  setInterval(function(){
+    pos -= 1;
+    if(pos <= -ticker.offsetWidth) pos = 0;
+    ticker.style.transform = 'translateX('+pos+'px)';
+    clone.style.transform = 'translateX('+(pos+ticker.offsetWidth)+'px)';
+  }, 20);
+}
+
+// Scroll reveal
+var reveals = document.querySelectorAll('.fc,.hs,.features,.how');
+var obs = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
+  });
+},{threshold:0.1});
+reveals.forEach(function(el){
+  el.style.opacity='0';
+  el.style.transform='translateY(20px)';
+  el.style.transition='opacity 0.6s ease,transform 0.6s ease';
+  obs.observe(el);
+});
+//]]>
+</script>
+
+</body>
+</html>
