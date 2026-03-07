@@ -9,18 +9,17 @@
 <link href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap' rel='stylesheet'/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;min-height:100vh;background:#080c10;color:#f8fafc;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html,body{width:100%;min-height:100vh;background:#060d06;color:#f8fafc;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{text-decoration:none}
 
 /* BG */
-.page-wrap{min-height:100vh;background:#080c10;position:relative}
-.bg-glow{position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:0;background-image:url('https://raw.githubusercontent.com/mrtechpk1-ai/FBMprime/main/fbmprimebackground.png');background-size:cover;background-position:center;background-repeat:no-repeat;opacity:0.2;}
-.bg-glow::after{content:'';position:fixed;inset:0;background:rgba(5,14,5,0.7);}
+.page-wrap{min-height:100vh;background:transparent;position:relative}
+.bg-glow{position:absolute;top:0;left:0;right:0;height:100vh;background:radial-gradient(ellipse 120% 60% at 50% 0%,rgba(22,163,74,0.15) 0%,transparent 60%);pointer-events:none;z-index:0}
 .bg-grid{position:absolute;top:0;left:0;right:0;height:100vh;background-image:linear-gradient(rgba(34,197,94,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(34,197,94,0.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
 
 /* NAV */
 .nav-wrap{position:relative;z-index:10;padding:20px;display:flex;justify-content:center}
-.nav{display:inline-flex;align-items:center;gap:32px;background:rgba(5,14,5,0.8);border:1px solid rgba(34,197,94,0.15);border-radius:100px;padding:10px 10px 10px 24px;backdrop-filter:blur(20px);min-width:700px;justify-content:space-between}
+.nav{display:inline-flex;align-items:center;gap:32px;background:rgba(5,14,5,0.8);border:1px solid rgba(34,197,94,0.15);border-radius:100px;padding:10px 10px 10px 24px;backdrop-filter:blur(20px)}
 .nav-logo{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:800;color:#fff}
 .nav-dot{width:8px;height:8px;border-radius:50%;background:#4ade80}
 .nav-links{display:flex;gap:4px}
@@ -38,8 +37,6 @@ a{text-decoration:none}
 .hero-desc{font-size:clamp(14px,1.8vw,17px);color:#94a3b8;line-height:1.7;max-width:500px;margin:0 auto 40px;font-weight:400}
 .dl-btn{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.07);color:#fff;padding:16px 44px;border-radius:100px;font-size:17px;font-weight:700;border:1px solid rgba(255,255,255,0.15);transition:all 0.2s;letter-spacing:-0.01em}
 .dl-btn:hover{background:rgba(255,255,255,0.12);transform:translateY(-2px)}
-.dl-btn2{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);color:#4ade80;margin-top:12px}
-.dl-btn2:hover{background:rgba(34,197,94,0.18);transform:translateY(-2px)}
 
 /* MOCKUP */
 .mockup-wrap{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 20px 80px}
@@ -152,13 +149,12 @@ a{text-decoration:none}
 
 <div class='page-wrap'>
 <div class='bg-glow'></div>
-<div style='position:fixed;inset:0;background:#080c10;opacity:0.82;z-index:0;pointer-events:none'></div>
 <div class='bg-grid'></div>
 
 <!-- NAV -->
 <div class='nav-wrap'>
   <div class='nav'>
-    <div class='nav-logo'><img src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAGmklEQVR4nG2X329UxxXHP2fu/vDarL1rGwwBAbFLGomqtESBh9K8hJeqatqkUf+I9l/o/9Cn9h/oWx4i5S8AJZEQCQkVpDKQiJrYQG0E9hr2x/XeO6cPZ2buNepqd3Vn7syc73zPme85I5N8oqqe+FGxP7UWAnhVQOMXUUVVqzlhvqYZ2L8KigIlqqAqoB5VRUQAwREeVJXakoh6JA6OltUh6uLy1oci4qp5KKii6jGMDjRD0uoOkWBPPU5EIa0ZtxjmIcQOwxmZykBcwgEgIkgcL2GH4gNIB2SI+DAnS5twcbJzzghRRbyZlmhAXwehCM5AqATXCS6AiNOEajySGQhi2wUXJNShz7maTTG6hODzCoRG/GG81MZHJjSyGpgQMhBjQgKIRp3oCrpDgjfMqE8hZm21YMIFn4J6fwh0FWzBs+JBBcGhAkIJKM5orpyZmhKo1OgOgQoqzhkbNqqRmAiRhyBxcWMXH2kKxGeIQCO8JQVpbIqAF4g+CzGhaib3Jxts7V1DgVML79Ntnw1HuEx0JldE9sSOJAiiGRj0apcElxlObyBCYCZdEMinA+4++QfPh3cA2Bvd451Tf6XVWDBjNY0wd2igPZ5cD0gI5URt3QcBsKj9XGanRIy+8XSH/ckGIhkiDXbH99h+dcP2LE3EZaYNImE3xoZi65lPy+g8qoFxl/FfoSwLtv+7Q55PWFk5xmxnjpnGUbrt07wYfWc70YL7O/9kWo7odd5iWr6imc0y317DSQu8xYuLgS2BJfHItDxQjS+i5Io9q4evvrrF11/foigK3nzzDFevXqUz02Fv/EOIgZKGm+X58Dt2x+s4aaJa4KTF2tIfWV36KNFaybo1VDUEIRoDlORCEUbjIevr6+STHBHh4cMNNv7ziPPnz9Pr/ISFzpoFmQoHxR53nv6dp/tfIDhKf8DjwTVO9d6nnfVNegWcCL6muC4eMREqECEOskZGe2YGH4KwLEq++eZbftzc5GA6Jc8n5HkOeNqNHmf7v6Hh5lC8MZPNmQskakjtdAiIF6QopxojnGBIkyuEjY0fuXnjJpNJTqvVYjDYx/uSxcVFiqLAZcIvLlzg3FvnUD/l4YvP2Nq7TjOb49zynzg6904A5INsV2deVQ1ABKdSvaiDyCc5RVHQbDTZ3d3j+vXP2dzcSlmt11vgww8/oNdbwHvPgX+JkyZNmcXHVB/jqjqhUQcC70HVomjEJ1TpdGYCM57jJ1a4dOldtrd3KIoCgDzPOTiYgipOHDNZH0RQ9dFu2oyImraFBN0QkZjWSckGQcXgDIdD7q0/YDwes7a2yvHjK5x84wSrq2e5f/97AE6fOU2/1weEvfEDnr68SSub542F95hpLGIFSW2TKf9JTYqpVTli6leUJV9+eYO7d/6NqvLg+x/44Pe/ZXlpmcuXL/HkyVMALl96l1a7zf7kEbcf/42X+QbgeJk/4mcn/kzmGiG5aczsllG9pbOgRTH5RLYck0nO1tZjAJxz7L7Y49n2MxCh11tgfn6ehfl5ev0eiDAYP+RVvmVpF+X5q7sclIOai2s1BpnVIVUVp6HIqdrtdpvlpSXUe7z3zM516C/2EVVGkxHD4ZDhaMR4NMY5ODJzknajj2qJqqc7c4ZWdsTYtV0eVn6rB2ofBXGCegucVqPJe7++wtzcHKPRiLff/inHjq0wLaZ8e+tfDAb7ANy+fZsrV35Fr7PGz0/+hc3da7SyeVaXfkfDdewIxlwQQh28tUpfRO1N5zMEv8m1CF5L81eWgcKzZzt88smnjEcjADqzs3z88R84unzUBEuLUIhaYYIoKtURlHjUgUbM2IcyYki7h1C7mM0k1JBVnSsiiHOWbTxkkuFjPSGvS32wJkKsh+3NawJhC9c7q5Ta7/e5ePGXdLtdut0jXLx4gX6/V4lMKFpwwapm1heVMJ4IAfFaaqUDaYVkVEPiiO4wKhVfegaDPRRYmO/W7gZSK0gUb3Ee+nzKgkmbNAKoGUrnMWRF/X/v4ppBP16XWEKOTzettMFYURsIV9VuVQGZHlJX8GXsqi4MyTXi4hj7WbtypV0DJK6GiMMKvhSAYeLhg1ozEus7wFs15yLtIaAkiWooROMdQYO+1GLKGMlqSpiYIJ2Aw5TEwIpPBsxFq1FJY82nVmDEnScXWQUSboM+AtCaMQlVct2phyvdyFu6soXkZVeo2h0xMaHJyYKJnThbxMW0GIuC5O9DnzrAw86JwFysJROLQdAj8HiNDEuU3uqE/wExGHfpcSGtuwAAAABJRU5ErkJggg==' style='width:28px;height:28px;border-radius:6px'/>FBM Prime</div>
+    <div class='nav-logo'><div class='nav-dot'></div>FBM Prime</div>
     <div class='nav-links'>
       <a href='#features'>Features</a>
       <a href='#how'>How it works</a>
@@ -171,10 +167,9 @@ a{text-decoration:none}
 <!-- HERO -->
 <div class='hero'>
   <div class='hero-badge'><div class='badge-dot'></div>Windows · ADB Powered · v1.0.0</div>
-  <h1>Automate Your<br/><span class='green'>Bulk Account</span><br/>Logins</h1>
+  <h1>Automate Your<br/><span class='green'>Mass Account</span><br/>Logins</h1>
   <p class='hero-desc'>FBM Prime connects to your Android phone and logs in hundreds of Messenger and Facebook clone accounts automatically, with full 2FA support.</p>
-  <a class='dl-btn' href='https://github.com/mrtechpk1-ai/FBMprime/releases/download/v1.0.0/FBM_Prime.exe'>&#11015; Download FBM Prime</a>
-<a class='dl-btn dl-btn2' href='https://github.com/mrtechpk1-ai/FBMprime/releases/download/v1.0.0/FBM.Prime.Toolkit.Setup.1.0.0.exe'>&#11015; Download FBM Prime Toolkit</a>
+  <a class='dl-btn' href='https://github.com/mrtechpk1-ai/FBMprime/releases/download/v1.0.0/FBM_Prime.exe'>&#11015; Download Now</a>
 </div>
 
 <!-- MOCKUP -->
