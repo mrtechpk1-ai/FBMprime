@@ -1,340 +1,776 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<html lang="en">
 <head>
-<link rel='shortcut icon' href='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAGmklEQVR4nG2X329UxxXHP2fu/vDarL1rGwwBAbFLGomqtESBh9K8hJeqatqkUf+I9l/o/9Cn9h/oWx4i5S8AJZEQCQkVpDKQiJrYQG0E9hr2x/XeO6cPZ2buNepqd3Vn7syc73zPme85I5N8oqqe+FGxP7UWAnhVQOMXUUVVqzlhvqYZ2L8KigIlqqAqoB5VRUQAwREeVJXakoh6JA6OltUh6uLy1oci4qp5KKii6jGMDjRD0uoOkWBPPU5EIa0ZtxjmIcQOwxmZykBcwgEgIkgcL2GH4gNIB2SI+DAnS5twcbJzzghRRbyZlmhAXwehCM5AqATXCS6AiNOEajySGQhi2wUXJNShz7maTTG6hODzCoRG/GG81MZHJjSyGpgQMhBjQgKIRp3oCrpDgjfMqE8hZm21YMIFn4J6fwh0FWzBs+JBBcGhAkIJKM5orpyZmhKo1OgOgQoqzhkbNqqRmAiRhyBxcWMXH2kKxGeIQCO8JQVpbIqAF4g+CzGhaib3Jxts7V1DgVML79Ntnw1HuEx0JldE9sSOJAiiGRj0apcElxlObyBCYCZdEMinA+4++QfPh3cA2Bvd451Tf6XVWDBjNY0wd2igPZ5cD0gI5URt3QcBsKj9XGanRIy+8XSH/ckGIhkiDXbH99h+dcP2LE3EZaYNImE3xoZi65lPy+g8qoFxl/FfoSwLtv+7Q55PWFk5xmxnjpnGUbrt07wYfWc70YL7O/9kWo7odd5iWr6imc0y317DSQu8xYuLgS2BJfHItDxQjS+i5Io9q4evvrrF11/foigK3nzzDFevXqUz02Fv/EOIgZKGm+X58Dt2x+s4aaJa4KTF2tIfWV36KNFaybo1VDUEIRoDlORCEUbjIevr6+STHBHh4cMNNv7ziPPnz9Pr/ISFzpoFmQoHxR53nv6dp/tfIDhKf8DjwTVO9d6nnfVNegWcCL6muC4eMREqECEOskZGe2YGH4KwLEq++eZbftzc5GA6Jc8n5HkOeNqNHmf7v6Hh5lC8MZPNmQskakjtdAiIF6QopxojnGBIkyuEjY0fuXnjJpNJTqvVYjDYx/uSxcVFiqLAZcIvLlzg3FvnUD/l4YvP2Nq7TjOb49zynzg6904A5INsV2deVQ1ABKdSvaiDyCc5RVHQbDTZ3d3j+vXP2dzcSlmt11vgww8/oNdbwHvPgX+JkyZNmcXHVB/jqjqhUQcC70HVomjEJ1TpdGYCM57jJ1a4dOldtrd3KIoCgDzPOTiYgipOHDNZH0RQ9dFu2oyImraFBN0QkZjWSckGQcXgDIdD7q0/YDwes7a2yvHjK5x84wSrq2e5f/97AE6fOU2/1weEvfEDnr68SSub542F95hpLGIFSW2TKf9JTYqpVTli6leUJV9+eYO7d/6NqvLg+x/44Pe/ZXlpmcuXL/HkyVMALl96l1a7zf7kEbcf/42X+QbgeJk/4mcn/kzmGiG5aczsllG9pbOgRTH5RLYck0nO1tZjAJxz7L7Y49n2MxCh11tgfn6ehfl5ev0eiDAYP+RVvmVpF+X5q7sclIOai2s1BpnVIVUVp6HIqdrtdpvlpSXUe7z3zM516C/2EVVGkxHD4ZDhaMR4NMY5ODJzknajj2qJqqc7c4ZWdsTYtV0eVn6rB2ofBXGCegucVqPJe7++wtzcHKPRiLff/inHjq0wLaZ8e+tfDAb7ANy+fZsrV35Fr7PGz0/+hc3da7SyeVaXfkfDdewIxlwQQh28tUpfRO1N5zMEv8m1CF5L81eWgcKzZzt88smnjEcjADqzs3z88R84unzUBEuLUIhaYYIoKtURlHjUgUbM2IcyYki7h1C7mM0k1JBVnSsiiHOWbTxkkuFjPSGvS32wJkKsh+3NawJhC9c7q5Ta7/e5ePGXdLtdut0jXLx4gX6/V4lMKFpwwapm1heVMJ4IAfFaaqUDaYVkVEPiiO4wKhVfegaDPRRYmO/W7gZSK0gUb3Ee+nzKgkmbNAKoGUrnMWRF/X/v4ppBP16XWEKOTzettMFYURsIV9VuVQGZHlJX8GXsqi4MyTXi4hj7WbtypV0DJK6GiMMKvhSAYeLhg1ozEus7wFs15yLtIaAkiWooROMdQYO+1GLKGMlqSpiYIJ2Aw5TEwIpPBsxFq1FJY82nVmDEnScXWQUSboM+AtCaMQlVct2phyvdyFu6soXkZVeo2h0xMaHJyYKJnThbxMW0GIuC5O9DnzrAw86JwFysJROLQdAj8HiNDEuU3uqE/wExGHfpcSGtuwAAAABJRU5ErkJggg==' type='image/png'/>
-<meta content='width=device-width, initial-scale=1' name='viewport'/>
-<b:include data='blog' name='all-head-content'/>
-<b:skin><![CDATA[/* */]]></b:skin>
-<link href='https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&amp;display=swap' rel='stylesheet'/>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FBM Prime — #1 Facebook Account Automation Software. Auto Registration, Profile Setup, Page Creation & Active Interaction. 100% Undetectable. Used by 500+ Digital Marketers.">
+<title>FBM Prime — Facebook Automation Software | Auto Reg, Profile & Page Creation</title>
+<link rel="icon" type="image/png" href="fbmprimex_icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html,body{width:100%;min-height:100vh;background:#060d06 url('https://raw.githubusercontent.com/mrtechpk1-ai/FBMprime/main/fbmprimebackground.png') center/cover no-repeat fixed;color:#f8fafc;font-family:'Inter',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-a{text-decoration:none}
+  :root {
+    --bg: #080c16;
+    --card: #0e1420;
+    --bdr: rgba(255,255,255,0.07);
+    --bdr-blue: rgba(24,119,242,0.3);
+    --blue: #1877f2;
+    --blue-dark: #0f5ecf;
+    --purple: #8b5cf6;
+    --green: #22c55e;
+    --ink: #f1f5f9;
+    --mu: #94a3b8;
+    --mu2: #64748b;
+    --mono: 'Space Grotesk', monospace;
+    --sans: 'Inter', sans-serif;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--ink); overflow-x: hidden; line-height: 1.6; }
+  ::-webkit-scrollbar { width:6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--blue); border-radius:3px; }
 
-/* BG */
-.page-wrap{min-height:100vh;background:transparent;position:relative}
-.bg-glow{display:none}
-.bg-grid{position:absolute;top:0;left:0;right:0;height:100vh;background-image:linear-gradient(rgba(34,197,94,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(34,197,94,0.04) 1px,transparent 1px);background-size:60px 60px;pointer-events:none;z-index:0}
+  .hero-bg {
+    position: fixed; inset:0; z-index: -1;
+    
+    background: radial-gradient(ellipse 80% 60% at 50% -20%, rgba(24,119,242,0.25) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 40% at 80% 80%, rgba(139,92,246,0.15) 0%, transparent 60%),
+                var(--bg);
+    overflow: hidden;
+  }
+  .hero-bg::before {
+    content:''; position:absolute; inset:0;
+    background-image: linear-gradient(rgba(24,119,242,0.06) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(24,119,242,0.06) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: gridMove 20s linear infinite;
+  }
+  @keyframes gridMove { 0%{transform:translateY(0)} 100%{transform:translateY(50px)} }
+  .particle { position:absolute; border-radius:50%; background: var(--blue); opacity:0.4; animation: float linear infinite; }
+  @keyframes float {
+    0%{transform:translateY(0) translateX(0); opacity:0.4;}
+    50%{opacity:0.8;}
+    100%{transform:translateY(-100vh) translateX(50px); opacity:0;}
+  }
 
-/* NAV */
-.nav-wrap{position:relative;z-index:10;padding:20px;display:flex;justify-content:center}
-.nav{display:inline-flex;align-items:center;gap:32px;background:rgba(5,14,5,0.8);border:1px solid rgba(34,197,94,0.15);border-radius:100px;padding:10px 10px 10px 24px;backdrop-filter:blur(20px)}
-.nav-logo{display:flex;align-items:center;gap:8px;font-size:15px;font-weight:800;color:#fff}
-.nav-dot{width:8px;height:8px;border-radius:50%;background:#4ade80}
-.nav-links{display:flex;gap:4px}
-.nav-links a{font-size:13px;color:#64748b;padding:7px 14px;border-radius:100px;transition:all 0.2s;font-weight:500}
-.nav-links a:hover{color:#fff;background:rgba(255,255,255,0.07)}
-.nav-btn{background:#22c55e;color:#000;font-size:13px;font-weight:700;padding:10px 20px;border-radius:100px;transition:all 0.2s}
-.nav-btn:hover{background:#16a34a}
+  /* NAV */
+  nav {
+    position:fixed; top:0; left:0; right:0; z-index:1000;
+    background: rgba(8,12,22,0.88); backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--bdr);
+    padding: 0 5%; height: 66px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-logo { display:flex; align-items:center; gap:10px; text-decoration:none; font-size:20px; font-weight:800; color:var(--ink); font-family: var(--mono); letter-spacing:-0.5px; }
+  .nav-logo .logo-icon { width:34px; height:34px; background: linear-gradient(135deg, var(--blue), var(--purple)); border-radius:9px; display:flex; align-items:center; justify-content:center; font-size:16px; color:#fff; }
+  .nav-logo span { color: var(--blue); }
+  .nav-links { display:flex; gap:30px; align-items:center; }
+  .nav-links a { color: var(--mu); font-size:14px; font-weight:500; text-decoration:none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta { background: var(--blue); color:#fff; padding:8px 20px; border-radius:8px; font-size:14px; font-weight:600; text-decoration:none; transition: all 0.2s; white-space:nowrap; }
+  .nav-cta:hover { background: var(--blue-dark); transform:translateY(-1px); }
 
-/* HERO */
-.hero{position:relative;z-index:1;text-align:center;padding:80px 20px 60px}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);color:#4ade80;padding:6px 16px;border-radius:100px;font-size:11px;font-weight:600;letter-spacing:0.06em;margin-bottom:28px}
-.badge-dot{width:6px;height:6px;border-radius:50%;background:#4ade80}
-.hero h1{font-size:clamp(42px,7vw,84px);font-weight:900;letter-spacing:-0.04em;line-height:1.0;margin-bottom:20px}
-.hero h1 .green{color:#4ade80}
-.hero-desc{font-size:clamp(14px,1.8vw,17px);color:#94a3b8;line-height:1.7;max-width:500px;margin:0 auto 40px;font-weight:400}
-.dl-btn{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,0.07);color:#fff;padding:16px 44px;border-radius:100px;font-size:17px;font-weight:700;border:1px solid rgba(255,255,255,0.15);transition:all 0.2s;letter-spacing:-0.01em}
-.dl-btn:hover{background:rgba(255,255,255,0.12);transform:translateY(-2px)}
-.dl-btn2{background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);color:#4ade80;margin-top:12px}
-.dl-btn2:hover{background:rgba(34,197,94,0.18);transform:translateY(-2px)}
+  /* HERO */
+  .hero { position:relative; min-height:100vh; display:flex; align-items:center; justify-content:center; text-align:center; padding: 120px 5% 80px; overflow:hidden; }
+  .hero-content { position:relative; z-index:2; max-width:860px; }
+  .hero-badge { display:inline-flex; align-items:center; gap:8px; background: rgba(24,119,242,0.1); border: 1px solid rgba(24,119,242,0.3); padding: 6px 16px; border-radius:20px; font-size:13px; font-weight:600; color: var(--blue); margin-bottom:28px; animation: fadeDown 0.6s ease; }
+  .hero-badge .dot { width:7px; height:7px; background:var(--green); border-radius:50%; animation:pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{transform:scale(1); opacity:1} 50%{transform:scale(1.4); opacity:0.6} }
+  .hero h1 { font-size: clamp(36px, 6vw, 72px); font-weight:900; line-height:1.08; letter-spacing:-2px; margin-bottom:20px; animation: fadeDown 0.6s 0.1s ease both; }
+  .hero h1 .grad { background: linear-gradient(90deg, var(--blue), var(--purple)); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .hero-sub { font-size:18px; color:var(--mu); font-weight:400; max-width:640px; margin:0 auto 36px; animation: fadeDown 0.6s 0.2s ease both; }
+  .hero-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; animation: fadeDown 0.6s 0.3s ease both; }
+  .btn-primary { background: var(--blue); color:#fff; padding:14px 32px; border-radius:12px; font-size:16px; font-weight:700; text-decoration:none; transition:all 0.2s; display:flex; align-items:center; gap:8px; box-shadow: 0 8px 30px rgba(24,119,242,0.35); }
+  .btn-primary:hover { background:var(--blue-dark); transform:translateY(-2px); box-shadow:0 12px 40px rgba(24,119,242,0.5); }
+  .btn-secondary { background:transparent; color:var(--ink); border: 1px solid var(--bdr); padding:14px 28px; border-radius:12px; font-size:16px; font-weight:600; text-decoration:none; transition:all 0.2s; display:flex; align-items:center; gap:8px; }
+  .btn-secondary:hover { border-color: rgba(255,255,255,0.2); background: rgba(255,255,255,0.04); }
+  .hero-stats { display:flex; justify-content:center; gap:40px; flex-wrap:wrap; margin-top:50px; padding-top:40px; border-top: 1px solid var(--bdr); animation: fadeDown 0.6s 0.4s ease both; }
+  .stat-item { text-align:center; }
+  .stat-num { font-size:28px; font-weight:800; color:var(--blue); font-family:var(--mono); }
+  .stat-lbl { font-size:13px; color:var(--mu); font-weight:500; margin-top:2px; }
 
-/* MOCKUP */
-.mockup-wrap{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 20px 80px}
-.mockup-glow{text-align:center;height:60px;background:radial-gradient(ellipse 60% 100% at 50% 0%,rgba(34,197,94,0.12),transparent);margin-bottom:-10px}
-.mockup{background:#0a1408;border:1px solid rgba(34,197,94,0.18);border-radius:14px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,0.6)}
-.m-bar{background:#050a05;border-bottom:1px solid rgba(34,197,94,0.1);padding:0 18px;height:48px;display:flex;align-items:center;justify-content:space-between}
-.m-logo{font-size:14px;font-weight:800;color:#fff;display:flex;align-items:center;gap:8px}
-.m-ver{background:rgba(255,255,255,0.12);color:#fff;font-size:9px;padding:2px 8px;border-radius:20px;font-weight:600}
-.m-chip{display:flex;align-items:center;gap:5px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.2);border-radius:20px;padding:4px 10px;font-size:10px;color:#4ade80}
-.m-cdot{width:5px;height:5px;border-radius:50%;background:#4ade80}
-.m-body{display:grid;grid-template-columns:185px 1fr;min-height:370px}
-.m-side{background:#040904;border-right:1px solid rgba(34,197,94,0.07);padding:12px 8px;display:flex;flex-direction:column;gap:2px}
-.m-slbl{font-size:8px;color:#1a3a1a;letter-spacing:0.14em;text-transform:uppercase;padding:8px 10px 4px;font-weight:600}
-.m-ni{display:flex;align-items:center;gap:7px;padding:7px 10px;border-radius:6px;font-size:11px;color:#2d4a2d}
-.m-ni.on{background:rgba(34,197,94,0.1);color:#4ade80;font-weight:600}
-.m-foot{margin-top:auto;padding:10px;border-top:1px solid rgba(34,197,94,0.06);font-size:9px;color:#1a3a1a;line-height:1.8}
-.m-main{padding:16px;display:flex;flex-direction:column;gap:12px;background:rgba(8,16,8,0.5)}
-.m-title{font-size:16px;font-weight:800;color:#fff;letter-spacing:-0.02em}
-.m-sub{display:inline-block;font-size:9px;font-weight:600;background:rgba(34,197,94,0.1);color:#4ade80;padding:2px 10px;border-radius:20px;margin-top:2px}
-.m-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
-.m-sc{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.05);border-radius:7px;padding:9px 11px;position:relative;overflow:hidden}
-.m-sc::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px}
-.m-sc:nth-child(1)::after{background:#22c55e}
-.m-sc:nth-child(2)::after{background:#4ade80}
-.m-sc:nth-child(3)::after{background:#f59e0b}
-.m-sc:nth-child(4)::after{background:#3b82f6}
-.m-sl{font-size:7px;color:#374151;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:3px;font-weight:600}
-.m-sv{font-size:16px;font-weight:800;letter-spacing:-0.03em}
-.m-ss{font-size:8px;color:#374151;margin-top:1px}
-.m-2col{display:grid;grid-template-columns:300px 1fr;gap:10px}
-.m-panel{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:8px;overflow:hidden}
-.m-phdr{background:rgba(34,197,94,0.05);border-bottom:1px solid rgba(34,197,94,0.07);padding:7px 12px;font-size:10px;font-weight:700;color:#4ade80}
-.m-pb{padding:10px;display:flex;flex-direction:column;gap:7px}
-.m-2g{display:grid;grid-template-columns:1fr 1fr;gap:5px}
-.m-fi{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.05);border-radius:5px;padding:6px 9px}
-.m-fl{font-size:7px;color:#374151;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:2px;font-weight:600}
-.m-fv{font-size:10px;color:#4b5563}
-.m-rb{background:#22c55e;color:#000;border-radius:6px;font-size:10px;font-weight:800;padding:8px;text-align:center;letter-spacing:0.05em}
-.m-pr{margin-top:4px}
-.m-prl{display:flex;justify-content:space-between;font-size:8px;color:#374151;margin-bottom:3px}
-.m-prt{height:5px;background:rgba(34,197,94,0.08);border-radius:3px;overflow:hidden}
-.m-prf{height:100%;width:40%;background:linear-gradient(90deg,#22c55e,#4ade80);border-radius:3px}
-.m-con{background:#020602;border:1px solid rgba(34,197,94,0.07);border-radius:8px;overflow:hidden}
-.m-chdr{background:rgba(34,197,94,0.04);border-bottom:1px solid rgba(34,197,94,0.07);padding:7px 11px;display:flex;align-items:center;gap:6px}
-.m-dots{display:flex;gap:4px}
-.md{width:7px;height:7px;border-radius:50%}
-.md1{background:#ef4444}.md2{background:#f59e0b}.md3{background:#22c55e}
-.m-ct{font-size:9px;color:#374151;letter-spacing:0.08em;font-weight:600}
-.m-cl{padding:10px 11px;display:flex;flex-direction:column;gap:4px}
-.ml{font-size:8px;display:flex;gap:7px;font-family:monospace}
-.mlt{color:#1a3a1a}.mli{color:#3b82f6}.mlo{color:#22c55e}.mlw{color:#f59e0b}.mlx{color:#374151}
+  /* PREVIEW */
+  .preview-section { padding:60px 5%; position:relative; }
+  .preview-wrap { max-width:1100px; margin:0 auto; position:relative; }
+  .preview-img { width:100%; border-radius:20px; border: 1px solid var(--bdr-blue); box-shadow: 0 0 80px rgba(24,119,242,0.15); display:block; }
+  .preview-badge { position:absolute; top:-16px; left:50%; transform:translateX(-50%); background: var(--blue); color:#fff; padding:6px 20px; border-radius:20px; font-size:13px; font-weight:700; white-space:nowrap; box-shadow:0 4px 20px rgba(24,119,242,0.4); }
 
-/* TICKER */
-.ticker{border-top:1px solid rgba(34,197,94,0.08);border-bottom:1px solid rgba(34,197,94,0.08);padding:14px 0;overflow:hidden;background:rgba(5,14,5,0.4);position:relative;z-index:1}
-.ticker-inner{display:flex;gap:48px;width:max-content}
-.t-item{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:500;color:#64748b;white-space:nowrap}
-.t-sep{color:#22c55e}
+  /* SECTIONS */
+  section { padding:80px 5%; }
+  .section-label { display:inline-block; font-size:12px; font-weight:700; letter-spacing:2px; color:var(--blue); text-transform:uppercase; margin-bottom:12px; }
+  .section-title { font-size: clamp(28px, 4vw, 48px); font-weight:800; letter-spacing:-1px; margin-bottom:14px; line-height:1.15; }
+  .section-sub { color:var(--mu); font-size:17px; max-width:580px; }
+  .section-header { margin-bottom:56px; }
+  .section-header.center { text-align:center; }
+  .section-header.center .section-sub { margin:0 auto; }
 
-/* FEATURES */
-.features{position:relative;z-index:1;padding:90px 20px;max-width:1080px;margin:0 auto;text-align:center}
-.eyebrow{display:inline-flex;align-items:center;gap:6px;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.15);color:#4ade80;padding:5px 14px;border-radius:100px;font-size:11px;font-weight:600;letter-spacing:0.08em;margin-bottom:20px}
-.sec-h{font-size:clamp(30px,4vw,52px);font-weight:900;letter-spacing:-0.04em;line-height:1.05;margin-bottom:16px}
-.sec-p{font-size:15px;color:#94a3b8;line-height:1.7;max-width:480px;margin:0 auto 56px}
-.feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.1);border-radius:18px;overflow:hidden;text-align:left}
-.fc{background:#080c10;padding:32px 26px;transition:background 0.2s}
-.fc:hover{background:#0c1118}
-.fc-icon{width:42px;height:42px;background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.18);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:19px;margin-bottom:16px}
-.fc-title{font-size:15px;font-weight:700;margin-bottom:8px;letter-spacing:-0.01em}
-.fc-desc{font-size:13px;color:#94a3b8;line-height:1.6}
+  /* FEATURES */
+  .features-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; max-width:1200px; margin:0 auto; }
+  .feat-card { background:rgba(14,20,32,0.4); backdrop-filter:blur(10px); border:1px solid var(--bdr); border-radius:16px; padding:28px; transition: all 0.25s; position:relative; overflow:hidden; }
+  .feat-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background: linear-gradient(90deg, var(--blue), var(--purple)); opacity:0; transition:opacity 0.25s; }
+  .feat-card:hover { border-color:var(--bdr-blue); transform:translateY(-4px); }
+  .feat-card:hover::before { opacity:1; }
+  .feat-icon { width:44px; height:44px; background: rgba(24,119,242,0.1); border:1px solid rgba(24,119,242,0.2); border-radius:12px; display:flex; align-items:center; justify-content:center; font-size:18px; margin-bottom:16px; color: var(--blue); }
+  .feat-card h3 { font-size:16px; font-weight:700; margin-bottom:8px; }
+  .feat-card p { font-size:14px; color:var(--mu); line-height:1.7; }
+  .feat-tags { display:flex; flex-wrap:wrap; gap:6px; margin-top:14px; }
+  .feat-tag { background:rgba(24,119,242,0.08); border:1px solid rgba(24,119,242,0.15); color:#60a5fa; font-size:11px; font-weight:600; padding:2px 8px; border-radius:4px; }
+  .badge-new { background:rgba(34,197,94,0.1); border:1px solid rgba(34,197,94,0.2); color:var(--green); font-size:10px; font-weight:700; padding:1px 7px; border-radius:4px; margin-left:6px; vertical-align:middle; }
 
-/* HOW */
-.how{position:relative;z-index:1;padding:90px 20px;max-width:1080px;margin:0 auto;border-top:1px solid rgba(34,197,94,0.07);display:grid;grid-template-columns:280px 1fr;gap:80px;align-items:start}
-.how-steps{display:flex;flex-direction:column}
-.hs{display:flex;gap:18px;padding:24px 0;border-bottom:1px solid rgba(34,197,94,0.07)}
-.hs:first-child{padding-top:0}
-.hs:last-child{border-bottom:none}
-.hs-num{font-size:11px;font-weight:700;color:#1a3a1a;min-width:32px;padding-top:2px;letter-spacing:0.04em}
-.hs-title{font-size:14px;font-weight:700;margin-bottom:6px;letter-spacing:-0.01em}
-.hs-desc{font-size:13px;color:#94a3b8;line-height:1.6}
+  /* WORKFLOW */
+  .workflow-section { background: var(--card); }
+  .workflow-steps { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:0; max-width:1100px; margin:0 auto; position:relative; }
+  .workflow-steps::before { content:''; position:absolute; top:30px; left:10%; right:10%; height:2px; background: linear-gradient(90deg, var(--blue), var(--purple)); opacity:0.3; }
+  .wf-step { text-align:center; padding:24px 20px; position:relative; }
+  .wf-num { width:60px; height:60px; background: linear-gradient(135deg, var(--blue), var(--purple)); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:22px; font-weight:900; margin:0 auto 16px; position:relative; z-index:1; box-shadow:0 6px 24px rgba(24,119,242,0.35); }
+  .wf-step h4 { font-size:16px; font-weight:700; margin-bottom:8px; }
+  .wf-step p { font-size:13px; color:var(--mu); }
 
-/* CONTACT */
-.contact{position:relative;z-index:1;padding:100px 20px;text-align:center;border-top:1px solid rgba(34,197,94,0.07)}
-.wa-btn{display:inline-flex;align-items:center;gap:12px;background:#22c55e;color:#000;padding:15px 38px;border-radius:100px;font-size:15px;font-weight:800;transition:all 0.2s;margin-top:36px}
-.wa-btn:hover{background:#16a34a;transform:translateY(-2px)}
-.wa-ic{width:24px;height:24px;background:rgba(0,0,0,0.15);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px}
-.contact-note{margin-top:16px;font-size:12px;color:#1a3a1a;font-weight:500}
+  /* PRICING */
+  .pricing-tabs { display:flex; justify-content:center; gap:8px; flex-wrap:wrap; margin-bottom:48px; }
+  .ptab { background:rgba(14,20,32,0.4); backdrop-filter:blur(10px); border:1px solid var(--bdr); color:var(--mu); padding:8px 20px; border-radius:8px; font-size:14px; font-weight:600; cursor:pointer; transition:all 0.2s; }
+  .ptab.active, .ptab:hover { background:var(--blue); border-color:var(--blue); color:#fff; }
+  .pricing-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:20px; max-width:1100px; margin:0 auto; }
+  .price-card { background:rgba(14,20,32,0.4); backdrop-filter:blur(10px); border:1px solid var(--bdr); border-radius:20px; padding:30px; transition:all 0.25s; position:relative; }
+  .price-card.popular { border-color: var(--blue); background: linear-gradient(135deg, rgba(24,119,242,0.08), rgba(139,92,246,0.05)); }
+  .popular-badge { position:absolute; top:-14px; left:50%; transform:translateX(-50%); background: linear-gradient(90deg, var(--blue), var(--purple)); color:#fff; font-size:12px; font-weight:700; padding:4px 18px; border-radius:20px; white-space:nowrap; }
+  .price-name { font-size:15px; font-weight:700; color:var(--mu); margin-bottom:6px; }
+  .price-amount { font-size:46px; font-weight:900; font-family:var(--mono); color:var(--ink); line-height:1; }
+  .price-amount sup { font-size:20px; vertical-align:top; margin-top:10px; display:inline-block; }
+  .price-period { font-size:13px; color:var(--mu); margin-top:4px; margin-bottom:18px; }
+  .price-save { display:inline-block; background:rgba(34,197,94,0.1); border:1px solid rgba(34,197,94,0.2); color:var(--green); font-size:11px; font-weight:700; padding:2px 10px; border-radius:4px; margin-bottom:14px; }
+  .price-divider { border:none; border-top:1px solid var(--bdr); margin:18px 0; }
+  .price-features { list-style:none; display:flex; flex-direction:column; gap:10px; margin-bottom:22px; }
+  .price-features li { font-size:14px; color:var(--mu); display:flex; align-items:center; gap:10px; }
+  .price-features li .ic { color:var(--green); font-size:13px; flex-shrink:0; }
+  .price-features li .ic.no { color:var(--mu2); }
+  .price-btn { display:block; text-align:center; padding:12px; border-radius:10px; font-size:15px; font-weight:700; text-decoration:none; transition:all 0.2s; }
+  .price-btn.primary-btn { background:var(--blue); color:#fff; box-shadow:0 6px 24px rgba(24,119,242,0.35); }
+  .price-btn.primary-btn:hover { background:var(--blue-dark); }
+  .price-btn.outline-btn { border:1px solid var(--bdr); color:var(--ink); }
+  .price-btn.outline-btn:hover { border-color:rgba(255,255,255,0.2); background:rgba(255,255,255,0.04); }
 
-/* FOOTER */
-.footer{position:relative;z-index:1;border-top:1px solid rgba(34,197,94,0.07);padding:22px 40px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
-.f-logo{font-size:13px;font-weight:800;color:#64748b}
-.f-copy{font-size:11px;color:#1a3a1a;font-weight:500}
+  /* SPECS */
+  .specs-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; max-width:1000px; margin:0 auto; }
+  .spec-card { background:rgba(14,20,32,0.4); backdrop-filter:blur(10px); border:1px solid var(--bdr); border-radius:16px; padding:24px; }
+  .spec-card h4 { font-size:12px; font-weight:700; color:var(--blue); margin-bottom:14px; display:flex; align-items:center; gap:8px; text-transform:uppercase; letter-spacing:1px; }
+  .spec-row { display:flex; justify-content:space-between; align-items:center; padding:8px 0; border-bottom:1px solid var(--bdr); font-size:14px; }
+  .spec-row:last-child { border-bottom:none; }
+  .spec-lbl { color:var(--mu); }
+  .spec-val { font-weight:600; color:var(--ink); font-family:var(--mono); font-size:13px; }
+  .spec-val.green { color:var(--green); }
+  .spec-val.blue { color:var(--blue); }
 
-@media(max-width:768px){
-.nav-links{display:none}
-.m-body{grid-template-columns:1fr}
-.m-side{display:none}
-.m-2col{grid-template-columns:1fr}
-.m-stats{grid-template-columns:repeat(2,1fr)}
-.feat-grid{grid-template-columns:1fr}
-.how{grid-template-columns:1fr;gap:40px}
-.footer{flex-direction:column;text-align:center;padding:20px}
-}
+  /* FAQ */
+  .faq-wrap { max-width:780px; margin:0 auto; }
+  .faq-item { background:rgba(14,20,32,0.4); backdrop-filter:blur(10px); border:1px solid var(--bdr); border-radius:14px; margin-bottom:12px; overflow:hidden; transition:border-color 0.2s; }
+  .faq-item.open { border-color:var(--bdr-blue); }
+  .faq-q { padding:20px 24px; display:flex; justify-content:space-between; align-items:center; cursor:pointer; gap:20px; }
+  .faq-q span { font-size:15px; font-weight:600; color:var(--ink); }
+  .faq-arrow { flex-shrink:0; width:26px; height:26px; background:rgba(24,119,242,0.1); border-radius:6px; display:flex; align-items:center; justify-content:center; color:var(--blue); font-size:12px; transition:transform 0.2s; }
+  .faq-item.open .faq-arrow { transform:rotate(180deg); }
+  .faq-a { max-height:0; overflow:hidden; transition:max-height 0.35s ease, padding 0.2s ease; padding:0 24px; }
+  .faq-item.open .faq-a { max-height:300px; padding:0 24px 20px; }
+  .faq-a p { font-size:14px; color:var(--mu); line-height:1.8; }
+
+  /* CTA */
+  .cta-section { text-align:center; padding:100px 5%; background: radial-gradient(ellipse 70% 50% at 50% 50%, rgba(24,119,242,0.12) 0%, transparent 70%); }
+  .cta-section h2 { font-size:clamp(28px,4vw,52px); font-weight:900; letter-spacing:-1px; margin-bottom:14px; }
+  .cta-section > p { color:var(--mu); font-size:17px; margin-bottom:36px; }
+  .contact-strip { display:inline-flex; gap:30px; align-items:center; flex-wrap:wrap; justify-content:center; background:rgba(14,20,32,0.4); backdrop-filter:blur(10px); border:1px solid var(--bdr); border-radius:20px; padding:24px 40px; margin-top:40px; }
+  .contact-item { display:flex; align-items:center; gap:10px; color:var(--mu); font-size:15px; }
+  .contact-item i { color:var(--blue); font-size:18px; }
+  .contact-item a { color:var(--blue); text-decoration:none; font-weight:600; }
+
+  /* TESTIMONIALS */
+  .testimonials-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:20px; max-width:1100px; margin:0 auto; }
+  .testi-card { background:rgba(14,20,32,0.4); backdrop-filter:blur(10px); border:1px solid var(--bdr); border-radius:16px; padding:24px; }
+  .stars { color:#f59e0b; font-size:13px; margin-bottom:14px; }
+  .testi-text { font-size:14px; color:var(--mu); line-height:1.8; margin-bottom:16px; font-style:italic; }
+  .testi-author { display:flex; align-items:center; gap:10px; }
+  .testi-avatar { width:38px; height:38px; border-radius:50%; background: linear-gradient(135deg,var(--blue),var(--purple)); display:flex; align-items:center; justify-content:center; font-size:15px; font-weight:700; }
+  .testi-name { font-size:14px; font-weight:700; }
+  .testi-role { font-size:12px; color:var(--mu); }
+
+  /* FOOTER */
+  footer { background:rgba(14,20,32,0.4); backdrop-filter:blur(10px); border-top:1px solid var(--bdr); padding:40px 5%; text-align:center; color:var(--mu); font-size:13px; }
+  footer .footer-logo { font-size:18px; font-weight:800; color:var(--blue); margin-bottom:10px; font-family:var(--mono); }
+  footer p { margin-top:8px; }
+
+  @keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
+  .reveal { opacity:0; transform:translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+
+  @media(max-width:768px){
+    nav { padding:0 4%; }
+    .nav-links { display:none; }
+    .hero-stats { gap:24px; }
+    .workflow-steps::before { display:none; }
+    .contact-strip { flex-direction:column; gap:16px; }
+    .ptab { font-size:12px; padding:6px 14px; }
+  }
+
+  /* 21. Custom Cursor */
+  body, a, button, .faq-q, .ptab { cursor: none !important; }
+  .custom-cursor {
+    position: fixed; top: 0; left: 0; width: 24px; height: 24px;
+    border: 2px solid var(--blue); border-radius: 50%;
+    pointer-events: none; z-index: 10000;
+    transform: translate(-50%, -50%);
+    transition: width 0.25s ease, height 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+    mix-blend-mode: difference;
+  }
+  .custom-cursor.hover {
+    width: 50px; height: 50px;
+    background: rgba(24,119,242,0.2);
+    border-color: rgba(24,119,242,0.5);
+  }
+
+  /* 5. Floating WhatsApp */
+  .floating-wa {
+    position: fixed; bottom: 30px; right: 30px; z-index: 1000;
+    width: 60px; height: 60px; background: #25d366; color: #fff;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 32px; text-decoration: none;
+    box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: pulse-wa 2s infinite;
+  }
+  @keyframes pulse-wa {
+    0% { box-shadow: 0 0 0 0 rgba(37,211,102, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(37,211,102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37,211,102, 0); }
+  }
+  .floating-wa:hover { transform: scale(1.15) rotate(-5deg); }
+
+  /* 18. Micro-Interactions (Glow) */
+  .btn-primary { transition: all 0.3s ease; }
+  .btn-primary:hover {
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 10px 40px var(--blue-glow), 0 0 20px rgba(24,119,242,0.4);
+  }
+  .price-card, .feat-card {
+    background: rgba(14,20,32, 0.45) !important;
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  .price-card:hover, .feat-card:hover {
+    background: rgba(14,20,32, 0.65) !important;
+    border-color: rgba(24,119,242,0.3);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4), 0 0 30px rgba(24,119,242,0.1);
+  }
+  
+  /* Typewriter caret */
+  .typewriter-caret {
+    border-right: 3px solid var(--blue);
+    animation: blink 0.7s step-end infinite;
+  }
+  @keyframes blink { 50% { border-color: transparent; } }
+
 </style>
 </head>
 <body>
-<b:section id='main' class='main' maxwidgets='1' showaddelement='no'>
-<b:widget id='HTML1' locked='false' title='' type='HTML'>
-<b:widget-settings/>
-<b:includable id='main'>
-
-<div class='page-wrap'>
-<div class='bg-glow'></div>
-<div class='bg-grid'></div>
+<div class="hero-bg" id="heroBg"></div>
 
 <!-- NAV -->
-<div class='nav-wrap'>
-  <div class='nav'>
-    <div class='nav-logo'><div class='nav-dot'></div>FBM Prime</div>
-    <div class='nav-links'>
-      <a href='#features'>Features</a>
-      <a href='#how'>How it works</a>
-      <a href='#contact'>Contact</a>
-    </div>
-    <a class='nav-btn' href='https://wa.me/923241703901' target='_blank'>Get Access</a>
+<nav>
+  <a class="nav-logo" href="#">
+    <div class="logo-icon" style="background:transparent; border:none; padding:0; width:38px; height:38px;"><img src="fbmprimex_icon.png" alt="FBM Prime Logo" style="width:38px; height:38px; object-fit:contain; border-radius:8px;"></div>
+    FBM<span>Prime</span>
+  </a>
+  <div class="nav-links">
+    <a href="#features">Features</a>
+    <a href="#workflow">How It Works</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#specs">PC Requirements</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contact">Contact</a>
+    <a class="nav-cta" href="#pricing">Buy Now</a>
   </div>
-</div>
+</nav>
 
 <!-- HERO -->
-<div class='hero'>
-  <div class='hero-badge'><div class='badge-dot'></div>Windows · ADB Powered · v1.0.0</div>
-  <h1>Automate Your<br/><span class='green'>Bulk Accounts</span><br/>Login</h1>
-  <p class='hero-desc'>FBM Prime connects to your Android phone and logs in hundreds of Messenger and Facebook clone accounts automatically, with full 2FA support.</p>
-  <a class='dl-btn' href='https://github.com/mrtechpk1-ai/FBMprime/releases/download/v1.0.0/FBM_Prime.exe'>&#11015; Download FBM Prime</a>
-<a class='dl-btn dl-btn2' href='https://github.com/mrtechpk1-ai/FBMprime/releases/download/v1.0.0/FBM.Prime.Toolkit.exe'>&#11015; Download FBM Prime Toolkit</a>
-</div>
-
-<!-- MOCKUP -->
-<div class='mockup-wrap'>
-  <div class='mockup-glow'></div>
-  <div class='mockup'>
-    <div class='m-bar'>
-      <div class='m-logo'>FBM Prime &#9823; <span class='m-ver'>v1.0.0</span></div>
-      <div class='m-chip'><div class='m-cdot'></div>Device Connected</div>
+<section class="hero">
+  
+  <div class="hero-content">
+    <div class="hero-badge">
+      <div class="dot"></div>
+      LIVE SOFTWARE &mdash; 500+ Active Users Worldwide
     </div>
-    <div class='m-body'>
-      <div class='m-side'>
-        <div class='m-slbl'>Messenger</div>
-        <div class='m-ni on'>&#128172; Automation</div>
-        <div class='m-slbl'>Facebook</div>
-        <div class='m-ni'>&#128309; Automation</div>
-        <div class='m-slbl'>Tools</div>
-        <div class='m-ni'>&#128260; Package Sorter</div>
-        <div class='m-foot'>Made by Md_Ahmed.Dev<br/>FBM Prime 2025</div>
-      </div>
-      <div class='m-main'>
-        <div>
-          <div class='m-title'>Messenger Dashboard</div>
-          <div class='m-sub'>Multi Login Android Bot</div>
-        </div>
-        <div class='m-stats'>
-          <div class='m-sc'><div class='m-sl'>Total</div><div class='m-sv' style='color:#f1f5f9'>247</div><div class='m-ss'>accounts</div></div>
-          <div class='m-sc'><div class='m-sl'>Success</div><div class='m-sv' style='color:#4ade80'>198</div><div class='m-ss' style='color:#16a34a'>80% rate</div></div>
-          <div class='m-sc'><div class='m-sl'>Failed</div><div class='m-sv' style='color:#f59e0b'>12</div><div class='m-ss' style='color:#f59e0b'>4.9%</div></div>
-          <div class='m-sc'><div class='m-sl'>Speed</div><div class='m-sv' style='color:#60a5fa'>14</div><div class='m-ss'>acc/min</div></div>
-        </div>
-        <div class='m-2col'>
-          <div class='m-panel'>
-            <div class='m-phdr'>&#9881; Control Panel</div>
-            <div class='m-pb'>
-              <div class='m-2g'>
-                <div class='m-fi'><div class='m-fl'>Start From</div><div class='m-fv'>1</div></div>
-                <div class='m-fi'><div class='m-fl'>End At</div><div class='m-fv' style='color:#1a3a1a'>All</div></div>
-              </div>
-              <div class='m-rb'>&#9654; START AUTOMATION</div>
-              <div class='m-pr'>
-                <div class='m-prl'><span>Progress</span><span>98 / 247</span></div>
-                <div class='m-prt'><div class='m-prf'></div></div>
-              </div>
-            </div>
-          </div>
-          <div class='m-con'>
-            <div class='m-chdr'>
-              <div class='m-dots'><div class='md md1'></div><div class='md md2'></div><div class='md md3'></div></div>
-              <div class='m-ct'>LIVE CONSOLE</div>
-            </div>
-            <div class='m-cl'>
-              <div class='ml'><span class='mlt'>03:14:18</span><span class='mli'>[INF]</span><span class='mlx'>Starting — 247 accounts</span></div>
-              <div class='ml'><span class='mlt'>03:14:22</span><span class='mlo'>[OK]</span><span class='mlx'>Messenger 01 — Success</span></div>
-              <div class='ml'><span class='mlt'>03:14:28</span><span class='mlo'>[OK]</span><span class='mlx'>Messenger 02 — Success</span></div>
-              <div class='ml'><span class='mlt'>03:14:34</span><span class='mlo'>[OK]</span><span class='mlx'>Messenger 03 — 2FA handled</span></div>
-              <div class='ml'><span class='mlt'>03:14:39</span><span class='mlw'>[WRN]</span><span class='mlx'>Messenger 04 — Retrying...</span></div>
-              <div class='ml'><span class='mlt'>03:14:44</span><span class='mlo'>[OK]</span><span class='mlx'>Messenger 04 — Success</span></div>
-              <div class='ml'><span class='mlt'>03:14:50</span><span class='mlo'>[OK]</span><span class='mlx'>Messenger 05 — Success</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
+    <h1>
+      Facebook Automation<br>
+      Like You've <span class="grad" id="typewriter">Never Seen Before</span><span class="typewriter-caret"></span>
+    </h1>
+    <p class="hero-sub">
+      FBM Prime is a professional, fully undetectable Facebook automation tool. Auto Registration, Smart Profile Builder, Page Creation, and Active Interaction — all in one powerful software.
+    </p>
+    <div class="hero-btns">
+      <a href="#pricing" class="btn-primary"><i class="fas fa-bolt"></i> Download FBMprime Reg</a>
+      <a href="#features" class="btn-secondary"><i class="fas fa-play-circle"></i> Explore Features</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item"><div class="stat-num">500+</div><div class="stat-lbl">Active Users</div></div>
+      <div class="stat-item"><div class="stat-num">10K+</div><div class="stat-lbl">Accounts Created</div></div>
+      <div class="stat-item"><div class="stat-num">5</div><div class="stat-lbl">Powerful Modules</div></div>
+      <div class="stat-item"><div class="stat-num">24/7</div><div class="stat-lbl">Automation Capable</div></div>
+      <div class="stat-item"><div class="stat-num">100%</div><div class="stat-lbl">Undetectable</div></div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- TICKER -->
-<div class='ticker'>
-  <div class='ticker-inner' id='tickerInner'>
-    <div class='t-item'><span class='t-sep'>&#10022;</span>Messenger Clone Login</div>
-    <div class='t-item'><span class='t-sep'>&#10022;</span>Facebook Clone Login</div>
-    <div class='t-item'><span class='t-sep'>&#10022;</span>2FA Auto Handle</div>
-    <div class='t-item'><span class='t-sep'>&#10022;</span>ADB Powered</div>
-    <div class='t-item'><span class='t-sep'>&#10022;</span>Excel / CSV Import</div>
-    <div class='t-item'><span class='t-sep'>&#10022;</span>Live Console</div>
-    <div class='t-item'><span class='t-sep'>&#10022;</span>Package Sorter</div>
-    <div class='t-item'><span class='t-sep'>&#10022;</span>License System</div>
+<!-- DASHBOARD PREVIEW -->
+<div class="preview-section reveal">
+  <div class="preview-wrap">
+    <div class="preview-badge">&#9889; Live Dashboard Preview</div>
+    <img src="landing_dashboard.png" alt="FBM Prime Dashboard Interface" class="preview-img" onerror="this.style.display='none'">
   </div>
 </div>
 
 <!-- FEATURES -->
-<div class='features' id='features'>
-  <div class='eyebrow'>&#10022; Features</div>
-  <h2 class='sec-h'>Everything you need.<br/>Nothing you don't.</h2>
-  <p class='sec-p'>FBM Prime handles the entire login flow from app launch to session save without you lifting a finger.</p>
-  <div class='feat-grid'>
-    <div class='fc'><div class='fc-icon'>&#128172;</div><div class='fc-title'>Messenger Auto Login</div><div class='fc-desc'>Full support for all Messenger clone apps. Detects login screen, inputs credentials, handles session save automatically.</div></div>
-    <div class='fc'><div class='fc-icon'>&#128309;</div><div class='fc-title'>Facebook Auto Login</div><div class='fc-desc'>Same power for Facebook clones — katana, odpa, opma. Separate dashboard, identical automation experience.</div></div>
-    <div class='fc'><div class='fc-icon'>&#128272;</div><div class='fc-title'>2FA Auto Handle</div><div class='fc-desc'>Google Authenticator accounts? FBM Prime generates TOTP codes automatically from stored secret keys.</div></div>
-    <div class='fc'><div class='fc-icon'>&#128194;</div><div class='fc-title'>Bulk Account Loading</div><div class='fc-desc'>Import hundreds of accounts from Excel, CSV, or TXT files. Or paste directly using the built-in bulk add popup.</div></div>
-    <div class='fc'><div class='fc-icon'>&#128225;</div><div class='fc-title'>Live Console and Stats</div><div class='fc-desc'>Every action logged in real time. Track total accounts, success rate, failures, and speed from one clean dashboard.</div></div>
-    <div class='fc'><div class='fc-icon'>&#128260;</div><div class='fc-title'>Package Sorter</div><div class='fc-desc'>Paste raw package lists, auto-sort and label them. Export as TXT or Excel ready to load in one click.</div></div>
+<section id="features">
+  <div class="section-header center">
+    <div class="section-label">Core Modules</div>
+    <h2 class="section-title">One Tool. Every Need Covered.</h2>
+    <p class="section-sub">Automate the complete Facebook account lifecycle in both Full Verify and No Verify modes — from registration all the way to page creation.</p>
+  </div>
+    <div class="features-grid">
+
+    <div class="feat-card reveal">
+      <div class="feat-icon"><i class="fas fa-user-plus"></i></div>
+      <h3>Full Verify Registration <span class="badge-new">HOT</span></h3>
+      <p>Generate authentic, phone-verified accounts instantly. Handles everything from global OTP extraction to automatic cookie acceptance without lifting a finger.</p>
+      <div class="feat-tags"><div class="feat-tag">Phone OTP</div><div class="feat-tag">Auto Cookie Accept</div><div class="feat-tag">Multi-Country</div><div class="feat-tag">Post-Reg Setup</div></div>
+    </div>
+
+    <div class="feat-card reveal">
+      <div class="feat-icon"><i class="fas fa-user-shield"></i></div>
+      <h3>No Verify Registration</h3>
+      <p>Scale your campaigns instantly. Create high-volume accounts rapidly using email or custom data without needing phone verification.</p>
+      <div class="feat-tags"><div class="feat-tag">Email Based</div><div class="feat-tag">High Volume</div><div class="feat-tag">Custom Data</div><div class="feat-tag">Fast Speed</div></div>
+    </div>
+
+    <div class="feat-card reveal">
+      <div class="feat-icon"><i class="fas fa-images"></i></div>
+      <h3>Smart Profile Builder <span class="badge-new">PRO</span></h3>
+      <p>Make every account look 100% human. Automatically sets avatars, cover photos, bios, relationships, and education details in seconds.</p>
+      <div class="feat-tags"><div class="feat-tag">Avatar Upload</div><div class="feat-tag">Cover Photo</div><div class="feat-tag">Bio & City</div><div class="feat-tag">Education & Work</div></div>
+    </div>
+
+    <div class="feat-card reveal">
+      <div class="feat-icon"><i class="fab fa-facebook"></i></div>
+      <h3>Page Creation Automation <span class="badge-new">NEW</span></h3>
+      <p>Launch business pages on autopilot. Fills in names, categories, and bios across multiple accounts simultaneously via stealth desktop mode.</p>
+      <div class="feat-tags"><div class="feat-tag">Desktop Mode</div><div class="feat-tag">Custom Names</div><div class="feat-tag">Category Auto-Select</div><div class="feat-tag">Bulk Pages</div></div>
+    </div>
+
+    <div class="feat-card reveal">
+      <div class="feat-icon"><i class="fas fa-hand-pointer"></i></div>
+      <h3>Active Interaction Mode</h3>
+      <p>Warm up accounts seamlessly. Drives organic engagement through automated reactions, comments, and feed scrolling with smart cookie fallback.</p>
+      <div class="feat-tags"><div class="feat-tag">Auto React</div><div class="feat-tag">Cookie Login</div><div class="feat-tag">Smart Fallback</div><div class="feat-tag">Live Status</div></div>
+    </div>
+
+    <div class="feat-card reveal">
+      <div class="feat-icon"><i class="fas fa-network-wired"></i></div>
+      <h3>Proxy & Multi-Window System</h3>
+      <p>Run multiple isolated browser windows concurrently. Assign dedicated HTTP/SOCKS5 proxies to each account in an organized grid layout.</p>
+      <div class="feat-tags"><div class="feat-tag">HTTP/SOCKS5</div><div class="feat-tag">Per-Account Proxy</div><div class="feat-tag">5–20 Windows</div><div class="feat-tag">Grid Arrange</div></div>
+    </div>
+
+    <div class="feat-card reveal">
+      <div class="feat-icon"><i class="fas fa-file-excel"></i></div>
+      <h3>Bulk Import — CSV, TXT, Excel</h3>
+      <p>Import your entire database in one click. Fully supports CSV, TXT, and Excel formats along with cookie column integration.</p>
+      <div class="feat-tags"><div class="feat-tag">CSV / TXT</div><div class="feat-tag">Excel .xlsx</div><div class="feat-tag">Cookie Column</div><div class="feat-tag">One-Click Import</div></div>
+    </div>
+
+    <div class="feat-card reveal">
+      <div class="feat-icon"><i class="fas fa-chart-bar"></i></div>
+      <h3>Live Results Dashboard</h3>
+      <p>Track every move in real time. Monitor step-by-step progress visually, review detailed logs, and export finished accounts instantly.</p>
+      <div class="feat-tags"><div class="feat-tag">Real-Time Updates</div><div class="feat-tag">Step Indicators</div><div class="feat-tag">CSV Export</div><div class="feat-tag">Log Viewer</div></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="workflow" class="workflow-section">
+  <div class="section-header center">
+    <div class="section-label">Workflow</div>
+    <h2 class="section-title">How Does It Work?</h2>
+    <p class="section-sub">Get your full automation pipeline running in just 4 simple steps.</p>
+  </div>
+  <div class="workflow-steps reveal">
+    <div class="wf-step">
+      <div class="wf-num">1</div>
+      <h4>Configure</h4>
+      <p>Choose your module (Full Verify / No Verify / Active Interaction), add proxies, and configure your settings.</p>
+    </div>
+    <div class="wf-step">
+      <div class="wf-num">2</div>
+      <h4>Import & Setup</h4>
+      <p>Import your number list, account list, or Excel file. Configure profile photos, bios, and page names.</p>
+    </div>
+    <div class="wf-step">
+      <div class="wf-num">3</div>
+      <h4>Start</h4>
+      <p>Hit the Start button — multiple real Chrome browsers open automatically and begin working in the background.</p>
+    </div>
+    <div class="wf-step">
+      <div class="wf-num">4</div>
+      <h4>Monitor & Export</h4>
+      <p>Watch live results in the dashboard. Export completed account data to CSV and use immediately.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+  <div class="section-header center">
+    <div class="section-label">Testimonials</div>
+    <h2 class="section-title">What Our Users Say</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testi-card reveal">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testi-text">"FBM Prime completely changed my Facebook marketing workflow. I used to manually create 5 accounts a day — now I run 50+ overnight without a single issue."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">A</div>
+        <div><div class="testi-name">Ahmed R.</div><div class="testi-role">Digital Marketer, Lahore</div></div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <p class="testi-text">"The Profile Builder is excellent — accounts look genuinely human. The Active Interaction module also does a great job warming them up. Highly recommended."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">Z</div>
+        <div><div class="testi-name">Zaheer K.</div><div class="testi-role">SMM Agency Owner, Karachi</div></div>
+      </div>
+    </div>
+    <div class="testi-card reveal">
+      <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</div>
+      <p class="testi-text">"The proxy integration and multi-window system are top-notch. I run 10 windows simultaneously and everything is smooth. Support is also very quick to respond."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">U</div>
+        <div><div class="testi-name">Usman M.</div><div class="testi-role">FB Account Seller, Islamabad</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PC REQUIREMENTS -->
+<section id="specs" style="background:rgba(14,20,32,0.4); backdrop-filter:blur(10px);">
+  <div class="section-header center">
+    <div class="section-label">System Requirements</div>
+    <h2 class="section-title">How Powerful Does Your PC Need to Be?</h2>
+    <p class="section-sub">FBM Prime runs real Chrome browsers via Playwright, so a decent PC is required. Windows OS is mandatory.</p>
+  </div>
+    <div class="specs-grid reveal">
+    <div class="spec-card">
+      <h4><i class="fas fa-microchip"></i> &nbsp; Minimum Requirements</h4>
+      <div class="spec-row"><span class="spec-lbl">Operating System</span><span class="spec-val green">Windows 10 (64-bit)</span></div>
+      <div class="spec-row"><span class="spec-lbl">Processor</span><span class="spec-val">Intel Core i3 / AMD Ryzen 3</span></div>
+      <div class="spec-row"><span class="spec-lbl">Memory (RAM)</span><span class="spec-val">8 GB</span></div>
+      <div class="spec-row"><span class="spec-lbl">Storage</span><span class="spec-val">200 MB available space</span></div>
+      <div class="spec-row"><span class="spec-lbl">Internet</span><span class="spec-val">Stable broadband connection</span></div>
+      <div class="spec-row"><span class="spec-lbl">Browser</span><span class="spec-val blue">10+</span></div>
+    </div>
+    <div class="spec-card">
+      <h4><i class="fas fa-rocket"></i> &nbsp; Recommended Requirements</h4>
+      <div class="spec-row"><span class="spec-lbl">Operating System</span><span class="spec-val green">Windows 11 (64-bit)</span></div>
+      <div class="spec-row"><span class="spec-lbl">Processor</span><span class="spec-val">Intel Core i5 / AMD Ryzen 5</span></div>
+      <div class="spec-row"><span class="spec-lbl">Memory (RAM)</span><span class="spec-val">12 GB</span></div>
+      <div class="spec-row"><span class="spec-lbl">Storage</span><span class="spec-val">1 GB available space</span></div>
+      <div class="spec-row"><span class="spec-lbl">Internet</span><span class="spec-val">High-speed broadband</span></div>
+      <div class="spec-row"><span class="spec-lbl">Browser</span><span class="spec-val blue">Chrome 30+ (latest)</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="section-header center">
+    <div class="section-label">Pricing</div>
+    <h2 class="section-title">One Premium Plan. Flexible Durations.</h2>
+    <p class="section-sub">All features are unlocked in every plan. Just choose how long you want to automate your Facebook operations.</p>
+  </div>
+
+  <!-- Pricing Cards -->
+  <div class="pricing-grid reveal" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
+
+    <!-- 1 Month -->
+    <div class="price-card">
+      <div class="price-name">1 Month License</div>
+      <div class="price-amount"><sup>$</sup>14<span style="font-size:18px;font-weight:400;color:var(--mu);">.99</span></div>
+      <div class="price-period">$14.99/mo &bull; Full Access</div>
+      <hr class="price-divider">
+      <ul class="price-features">
+        <li><i class="fas fa-check ic"></i> Full Verify Registration</li>
+        <li><i class="fas fa-check ic"></i> No Verify Registration</li>
+        <li><i class="fas fa-check ic"></i> Smart Profile Builder</li>
+        <li><i class="fas fa-check ic"></i> Page Creation Automation</li>
+        <li><i class="fas fa-check ic"></i> Active Interaction Mode</li>
+        <li><i class="fas fa-check ic"></i> Cookie-Based Smart Login</li>
+        <li><i class="fas fa-check ic"></i> Multi-Window System</li>
+        <li><i class="fas fa-check ic"></i> Premium Support</li>
+      </ul>
+      <a href="#contact" class="price-btn outline-btn">Get 1 Month</a>
+    </div>
+
+    <!-- 3 Months -->
+    <div class="price-card">
+      <div class="price-name">3 Month License</div>
+      <div class="price-amount"><sup>$</sup>39<span style="font-size:18px;font-weight:400;color:var(--mu);">.99</span></div>
+      <div class="price-period">$13.33/mo &bull; Full Access</div>
+      <div class="price-save" style="display:inline-block; background:rgba(34,197,94,0.1); border:1px solid rgba(34,197,94,0.2); color:var(--green); font-size:11px; font-weight:700; padding:2px 10px; border-radius:4px; margin-bottom:14px;">Save 11%</div>
+      <hr class="price-divider">
+      <ul class="price-features">
+        <li><i class="fas fa-check ic"></i> Full Verify Registration</li>
+        <li><i class="fas fa-check ic"></i> No Verify Registration</li>
+        <li><i class="fas fa-check ic"></i> Smart Profile Builder</li>
+        <li><i class="fas fa-check ic"></i> Page Creation Automation</li>
+        <li><i class="fas fa-check ic"></i> Active Interaction Mode</li>
+        <li><i class="fas fa-check ic"></i> Cookie-Based Smart Login</li>
+        <li><i class="fas fa-check ic"></i> Multi-Window System</li>
+        <li><i class="fas fa-check ic"></i> Premium Support</li>
+      </ul>
+      <a href="#contact" class="price-btn outline-btn">Get 3 Months</a>
+    </div>
+
+    <!-- 6 Months -->
+    <div class="price-card popular">
+      <div class="popular-badge">&#11088; BEST SELLER</div>
+      <div class="price-name">6 Month License</div>
+      <div class="price-amount"><sup>$</sup>74<span style="font-size:18px;font-weight:400;color:var(--mu);">.99</span></div>
+      <div class="price-period">$12.50/mo &bull; Full Access</div>
+      <div class="price-save" style="display:inline-block; background:rgba(34,197,94,0.1); border:1px solid rgba(34,197,94,0.2); color:var(--green); font-size:11px; font-weight:700; padding:2px 10px; border-radius:4px; margin-bottom:14px;">Save 17%</div>
+      <hr class="price-divider">
+      <ul class="price-features">
+        <li><i class="fas fa-check ic"></i> Full Verify Registration</li>
+        <li><i class="fas fa-check ic"></i> No Verify Registration</li>
+        <li><i class="fas fa-check ic"></i> Smart Profile Builder</li>
+        <li><i class="fas fa-check ic"></i> Page Creation Automation</li>
+        <li><i class="fas fa-check ic"></i> Active Interaction Mode</li>
+        <li><i class="fas fa-check ic"></i> Cookie-Based Smart Login</li>
+        <li><i class="fas fa-check ic"></i> Multi-Window System</li>
+        <li><i class="fas fa-check ic"></i> Premium Support</li>
+      </ul>
+      <a href="#contact" class="price-btn primary-btn">Get 6 Months</a>
+    </div>
+
+    <!-- 1 Year -->
+    <div class="price-card">
+      <div class="price-name">1 Year License</div>
+      <div class="price-amount"><sup>$</sup>99<span style="font-size:18px;font-weight:400;color:var(--mu);">.99</span></div>
+      <div class="price-period">$8.33/mo &bull; Full Access</div>
+      <div class="price-save" style="display:inline-block; background:rgba(34,197,94,0.1); border:1px solid rgba(34,197,94,0.2); color:var(--green); font-size:11px; font-weight:700; padding:2px 10px; border-radius:4px; margin-bottom:14px;">Save 44%</div>
+      <hr class="price-divider">
+      <ul class="price-features">
+        <li><i class="fas fa-check ic"></i> Full Verify Registration</li>
+        <li><i class="fas fa-check ic"></i> No Verify Registration</li>
+        <li><i class="fas fa-check ic"></i> Smart Profile Builder</li>
+        <li><i class="fas fa-check ic"></i> Page Creation Automation</li>
+        <li><i class="fas fa-check ic"></i> Active Interaction Mode</li>
+        <li><i class="fas fa-check ic"></i> Cookie-Based Smart Login</li>
+        <li><i class="fas fa-check ic"></i> Multi-Window System</li>
+        <li><i class="fas fa-check ic"></i> Premium Support</li>
+      </ul>
+      <a href="#contact" class="price-btn outline-btn">Get 1 Year</a>
+    </div>
+
+  
+  <div style="display:flex; justify-content:center; gap:30px; margin-top:40px; color:var(--mu2); font-size:13px; align-items:center; flex-wrap:wrap;">
+    <div><i class="fas fa-lock" style="color:var(--mu);"></i> 256-bit SSL Secure</div>
+    <div><i class="fas fa-shield-alt" style="color:var(--blue);"></i> Cloudflare Protected</div>
+    <div><i class="fas fa-check-circle" style="color:var(--green);"></i> 100% Verified Delivery</div>
   </div>
 </div>
 
-<!-- HOW -->
-<div class='how' id='how'>
-  <div>
-    <div class='eyebrow'>&#10022; How it works</div>
-    <h2 class='sec-h'>Up and running<br/>in minutes.</h2>
-    <p class='sec-p' style='margin:0'>No technical background needed. If you can plug in a USB cable, you can use FBM Prime.</p>
-  </div>
-  <div class='how-steps'>
-    <div class='hs'><div class='hs-num'>01 —</div><div><div class='hs-title'>Get your license key</div><div class='hs-desc'>Message us on WhatsApp, pick a plan, and receive your activation key. Takes under 2 minutes.</div></div></div>
-    <div class='hs'><div class='hs-num'>02 —</div><div><div class='hs-title'>Connect your phone</div><div class='hs-desc'>Enable USB Debugging on Android and plug in with a data cable. One-time setup.</div></div></div>
-    <div class='hs'><div class='hs-num'>03 —</div><div><div class='hs-title'>Load your accounts</div><div class='hs-desc'>Upload your Excel or CSV file or paste accounts directly into the bulk add window.</div></div></div>
-    <div class='hs'><div class='hs-num'>04 —</div><div><div class='hs-title'>Hit Start and walk away</div><div class='hs-desc'>FBM Prime handles app launch, login, 2FA, and session save. Come back when done.</div></div></div>
-  </div>
-</div>
+  <p style="text-align:center; color:var(--mu); margin-top:28px; font-size:14px;">
+    <i class="fas fa-exclamation-circle" style="color:#f59e0b; margin-right:6px;"></i>
+    All sales are <strong style="color:var(--ink);">non-refundable</strong>. Setup and installation support is provided via WhatsApp after purchase.
+  </p>
+</section>
 
-<!-- CONTACT -->
-<div class='contact' id='contact'>
-  <div class='eyebrow'>&#10022; Get Started</div>
-  <h2 class='sec-h'>Ready to automate?</h2>
-  <p class='sec-p' style='margin:16px auto 0'>Contact us on WhatsApp for your license key, pricing, or any questions. We respond fast.</p>
-  <a class='wa-btn' href='https://wa.me/923241703901' target='_blank'><div class='wa-ic'>&#128172;</div>WhatsApp — 0324-1703901</a>
-  <p class='contact-note'>Mon – Sat · 10:00 AM – 10:00 PM PKT</p>
-</div>
+<!-- FAQ -->
+<section id="faq" style="background:rgba(14,20,32,0.4); backdrop-filter:blur(10px);">
+  <div class="section-header center">
+    <div class="section-label">FAQ</div>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+  </div>
+    <div class="faq-wrap reveal">
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span>Is FBM Prime safe to use? Will Facebook ban my account?</span><div class="faq-arrow"><i class="fas fa-chevron-down"></i></div></div>
+      <div class="faq-a"><p>FBM Prime uses advanced safety protocols, random delays, and human-like interaction patterns to mimic natural behavior. Over 2,000+ users run it safely. Using quality proxies is still recommended.</p></div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span>Do you provide customer support?</span><div class="faq-arrow"><i class="fas fa-chevron-down"></i></div></div>
+      <div class="faq-a"><p>Absolutely! We offer live chat, email support, video tutorials, and a knowledge base. Premium support response time is under 2 hours during business hours.</p></div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span>What if I'm not tech-savvy? Is it easy to set up?</span><div class="faq-arrow"><i class="fas fa-chevron-down"></i></div></div>
+      <div class="faq-a"><p>FBM Prime is designed for everyone — no technical skills required. Our setup wizard guides you step-by-step in under 10 minutes. We also provide free screen-sharing assistance.</p></div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span>How many accounts can be created per day?</span><div class="faq-arrow"><i class="fas fa-chevron-down"></i></div></div>
+      <div class="faq-a"><p>There is no limit. It depends entirely on your PC and internet speed. With a good setup, 1,000+ accounts per day is easily achievable.</p></div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span>Where do I get phone numbers for registration?</span><div class="faq-arrow"><i class="fas fa-chevron-down"></i></div></div>
+      <div class="faq-a"><p>You purchase virtual numbers from SMS providers (e.g., SMS-Man, 5Sim). The tool automatically waits for and enters the OTP.</p></div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span>How does cookie-based login work?</span><div class="faq-arrow"><i class="fas fa-chevron-down"></i></div></div>
+      <div class="faq-a"><p>Simply provide the cookies in your account list. The tool injects them automatically. If they fail, our Smart Fallback switches to password login.</p></div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span>Does it work on Mac or Linux?</span><div class="faq-arrow"><i class="fas fa-chevron-down"></i></div></div>
+      <div class="faq-a"><p>Currently, FBM Prime officially supports Windows 10/11 (64-bit). For 24/7 operation, we recommend Windows Server 2019/2022 on a VPS.</p></div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span>Which proxies should I use?</span><div class="faq-arrow"><i class="fas fa-chevron-down"></i></div></div>
+      <div class="faq-a"><p>Avoid free proxies. We recommend high-quality Residential or Mobile proxies (e.g., Smartproxy, IPRoyal) for maximum trust.</p></div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span>Will I receive updates?</span><div class="faq-arrow"><i class="fas fa-chevron-down"></i></div></div>
+      <div class="faq-a"><p>Yes, we monitor Facebook changes actively and release patches promptly to keep the tool working smoothly.</p></div>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+      <div class="faq-q"><span>Is there a refund policy?</span><div class="faq-arrow"><i class="fas fa-chevron-down"></i></div></div>
+      <div class="faq-a"><p>All sales are strictly non-refundable. We provide comprehensive setup support via WhatsApp to ensure you get up and running successfully.</p></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA / CONTACT -->
+<section class="cta-section" id="contact">
+  <div class="section-label">Get Started</div>
+  <h2>Ready to Scale Your<br><span style="color:var(--blue)">Facebook Operations?</span></h2>
+  <p>Get FBM Prime today and have your automation pipeline live within 24 hours.</p>
+  <div class="hero-btns" style="justify-content:center;">
+    <a href="https://wa.me/+923241703901?text=Hello!+I+want+to+purchase+FBM+Prime" target="_blank" class="btn-primary">
+      <i class="fab fa-whatsapp"></i> Purchase on WhatsApp
+    </a>
+    <a href="#faq" class="btn-secondary">
+      <i class="fas fa-question-circle"></i> Read FAQ First
+    </a>
+  </div>
+  <div class="contact-strip">
+    <div class="contact-item"><i class="fab fa-whatsapp"></i><span>WhatsApp: <a href="https://wa.me/+923241703901" target="_blank">+92 324 1703901</a></span></div>
+    <div class="contact-item"><i class="fab fa-telegram"></i><span>Telegram: <a href="https://t.me/Fbmprime" target="_blank">@Fbmprime</a></span></div>
+    <div class="contact-item"><i class="fas fa-envelope"></i><span>Email: <a href="mailto:fbmprime@gmail.com">fbmprime@gmail.com</a></span></div>
+    <div class="contact-item"><i class="fas fa-clock"></i><span>Response Time: Within 1–2 hours</span></div>
+  </div>
+</section>
 
 <!-- FOOTER -->
-<div class='footer'>
-  <div class='f-logo'>FBM Prime · Md_Ahmed.Dev</div>
-  <div class='f-copy'>2025 All rights reserved</div>
-</div>
+<footer>
+  <div class="footer-logo">FBM Prime</div>
+  <p>Professional Facebook Automation Software &mdash; Windows Platform</p>
+  <p style="margin-top:14px; font-size:12px; color:var(--mu2);">
+    &#9888; This software is intended for educational and marketing research purposes only. Users are solely responsible for complying with Facebook's Terms of Service and applicable local laws. FBM Prime is not affiliated with Meta Platforms, Inc.
+  </p>
+  <p style="margin-top:10px;">&#169; 2025 FBM Prime. All rights reserved.</p>
+</footer>
 
-</div>
+<script>
+  // Particles
+  (function() {
+    var bg = document.getElementById('heroBg');
+    if(bg) {
+      for (var i = 0; i < 18; i++) {
+        var p = document.createElement('div');
+        p.className = 'particle';
+        var sz = Math.random() * 5 + 2;
+        p.style.cssText = 'width:'+sz+'px;height:'+sz+'px;left:'+(Math.random()*100)+'%;top:'+(Math.random()*100)+'%;animation-duration:'+(Math.random()*15+10)+'s;animation-delay:'+(Math.random()*8)+'s';
+        bg.appendChild(p);
+      }
+    }
+  })();
 
-</b:includable>
-</b:widget>
-</b:section>
+  // Reveal on scroll
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(e) { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(function(el) { observer.observe(el); });
 
-<script>//<![CDATA[
-// Ticker animation
-var ticker = document.getElementById('tickerInner');
-if(ticker){
-  var clone = ticker.cloneNode(true);
-  ticker.parentNode.appendChild(clone);
-  var pos = 0;
-  setInterval(function(){
-    pos -= 1;
-    if(pos <= -ticker.offsetWidth) pos = 0;
-    ticker.style.transform = 'translateX('+pos+'px)';
-    clone.style.transform = 'translateX('+(pos+ticker.offsetWidth)+'px)';
-  }, 20);
-}
+  // FAQ toggle
+  function toggleFaq(el) {
+    var isOpen = el.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(f) { f.classList.remove('open'); });
+    if (!isOpen) el.classList.add('open');
+  }
 
-// Scroll reveal
-var reveals = document.querySelectorAll('.fc,.hs,.features,.how');
-var obs = new IntersectionObserver(function(entries){
-  entries.forEach(function(e){
-    if(e.isIntersecting){ e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
+  // Nav shadow on scroll
+  window.addEventListener('scroll', function() {
+    var nav = document.querySelector('nav');
+    if(nav) {
+      nav.style.boxShadow = window.scrollY > 20 ? '0 4px 30px rgba(0,0,0,0.4)' : 'none';
+    }
   });
-},{threshold:0.1});
-reveals.forEach(function(el){
-  el.style.opacity='0';
-  el.style.transform='translateY(20px)';
-  el.style.transition='opacity 0.6s ease,transform 0.6s ease';
-  obs.observe(el);
-});
-//]]>
+
+  // 85. Dynamic Typewriter
+  const typeWords = ["Never Seen Before", "Always Dreamed Of", "Zero Manual Work", "Full Autopilot"];
+  let tw_i = 0, tw_j = 0, isDeleting = false;
+  const tw = document.getElementById("typewriter");
+  if(tw) {
+    function type() {
+      const currentWord = typeWords[tw_i];
+      if (isDeleting) {
+        tw.textContent = currentWord.substring(0, tw_j - 1);
+        tw_j--;
+      } else {
+        tw.textContent = currentWord.substring(0, tw_j + 1);
+        tw_j++;
+      }
+      let typeSpeed = isDeleting ? 40 : 80;
+      if (!isDeleting && tw_j === currentWord.length) {
+        typeSpeed = 2500;
+        isDeleting = true;
+      } else if (isDeleting && tw_j === 0) {
+        isDeleting = false;
+        tw_i = (tw_i + 1) % typeWords.length;
+        typeSpeed = 500;
+      }
+      setTimeout(type, typeSpeed);
+    }
+    setTimeout(type, 1500);
+  }
+
+  // 21. Custom Cursor
+  var cursor = document.createElement('div');
+  cursor.className = 'custom-cursor';
+  document.body.appendChild(cursor);
+  document.addEventListener('mousemove', function(e) {
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+  });
+  document.querySelectorAll('a, button, .faq-q, .ptab, .feat-card, .price-card').forEach(function(el) {
+    el.addEventListener('mouseenter', function() { cursor.classList.add('hover'); });
+    el.addEventListener('mouseleave', function() { cursor.classList.remove('hover'); });
+  });
+
 </script>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/+923241703901" class="floating-wa" target="_blank" title="Chat with Support">
+  <i class="fab fa-whatsapp"></i>
+</a>
 
 </body>
 </html>
