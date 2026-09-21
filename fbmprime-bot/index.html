@@ -277,7 +277,267 @@ body { font-family: var(--font); background: var(--light-bg); color: var(--text-
 /* FOOTER */
 footer { background: var(--dark-navy); color: #94a3b8; padding: 50px 0; text-align: center; }
 footer .foot-logo { font-size: 22px; font-weight: 900; color: #fff; font-family: 'Space Grotesk', sans-serif; margin-bottom: 10px; }
-footer a { color: #60a5fa; text-decoration: none; }
+/* NEXT-GEN WEB 3.0 CYBER SHOWCASE & FRAMES */
+.preview-cyber-section {
+    background: radial-gradient(circle at 50% 15%, #0f1e3d 0%, #080d1a 60%, #030712 100%) !important;
+    position: relative;
+    border: none !important;
+}
+.cyber-grid-overlay {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(to right, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+    background-size: 36px 36px;
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, #000 60%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 50%, #000 60%, transparent 100%);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.web3-glow-mesh {
+    position: absolute;
+    width: 650px;
+    height: 650px;
+    background: radial-gradient(circle, rgba(59, 130, 246, 0.22) 0%, rgba(139, 92, 246, 0.15) 45%, rgba(16, 185, 129, 0.1) 70%, transparent 80%);
+    filter: blur(60px);
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+    animation: web3MeshFloat 12s ease-in-out infinite alternate;
+}
+.web3-mesh-1 { top: -60px; left: -100px; }
+.web3-mesh-2 { bottom: -100px; right: -100px; animation-duration: 15s; animation-direction: alternate-reverse; }
+
+@keyframes web3MeshFloat {
+    0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+    50% { transform: translate(45px, -35px) scale(1.12) rotate(15deg); }
+    100% { transform: translate(-35px, 45px) scale(0.95) rotate(-10deg); }
+}
+
+/* LASER BORDER BEAM CONTAINER */
+.web3-beam-wrapper {
+    position: relative;
+    border-radius: 16px;
+    padding: 1.5px;
+    background: rgba(255, 255, 255, 0.08);
+    overflow: hidden;
+    margin-bottom: 2rem;
+    box-shadow: 0 20px 50px -15px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.web3-beam-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: -100%;
+    background: conic-gradient(from 0deg, transparent 0 320deg, #60a5fa 345deg, #a855f7 360deg);
+    animation: rotateLaserBeam 4s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+@keyframes rotateLaserBeam {
+    100% { transform: rotate(360deg); }
+}
+.web3-beam-wrapper:hover {
+    transform: translateY(-6px) scale(1.008);
+    box-shadow: 0 30px 70px -15px rgba(0, 0, 0, 0.9), 0 0 35px rgba(59, 130, 246, 0.4);
+}
+
+
+
+/* SLEEK APP & VIDEO FRAMES */
+.video-browser-window, .modern-img-frame-inner {
+    position: relative;
+    background: #080d1a;
+    border-radius: 14.5px;
+    overflow: hidden;
+    z-index: 2;
+}
+.video-window-header, .modern-img-frame-header {
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    min-height: 32px;
+}
+.window-dots {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.window-dot {
+    width: 7.5px;
+    height: 7.5px;
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.85;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.window-dots:hover .window-dot { opacity: 1; transform: scale(1.15); }
+.dot-red { background: #ef4444; }
+.dot-yellow { background: #eab308; }
+.dot-green { background: #22c55e; }
+
+.modern-img-frame-title, .video-window-title {
+    color: #94a3b8;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.pulse-record-dot {
+    width: 6px;
+    height: 6px;
+    background: #ef4444;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 8px rgba(239, 68, 68, 0.9);
+    animation: blinkRecord 1.5s infinite;
+}
+@keyframes blinkRecord {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(1.3); }
+}
+
+/* SHIMMER LIGHT BEAM */
+.modern-img-frame-inner::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(
+        115deg,
+        transparent 35%,
+        rgba(255, 255, 255, 0.04) 45%,
+        rgba(96, 165, 250, 0.12) 50%,
+        rgba(255, 255, 255, 0.04) 55%,
+        transparent 65%
+    );
+    transform: rotate(20deg);
+    pointer-events: none;
+    animation: web3ShimmerSweep 8s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+@keyframes web3ShimmerSweep {
+    0%, 60% { transform: translate(-80%, -80%) rotate(20deg); }
+    100% { transform: translate(60%, 60%) rotate(20deg); }
+}
+
+.modern-img-frame-inner img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: none !important;
+    transition: transform 0.5s ease;
+}
+.web3-beam-wrapper:hover .modern-img-frame-inner img {
+    transform: scale(1.006);
+}
+
+.video-frame-inner {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 70.2646%;
+    overflow: hidden;
+    background: #000;
+}
+.video-frame-inner iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+.video-footer-bar {
+    background: #060a14;
+    padding: 9px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+.video-pill-badge {
+    background: rgba(37, 99, 235, 0.14);
+    color: #93c5fd;
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    font-size: 10px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+.video-pill-badge:hover {
+    background: rgba(37, 99, 235, 0.3);
+    color: #fff;
+    border-color: rgba(96, 165, 250, 0.6);
+}
+.web3-status-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    color: #94a3b8;
+    font-weight: 500;
+}
+.web3-live-indicator {
+    width: 5px;
+    height: 5px;
+    background: #10b981;
+    border-radius: 50%;
+    box-shadow: 0 0 6px #10b981;
+    display: inline-block;
+    animation: blinkRecord 2s infinite;
+}
+
+/* FLOATING HUD BADGES */
+.hud-pills-row {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 1.8rem;
+    margin-bottom: 2.5rem;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.hud-pills-row::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+}
+.hud-pill {
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: #cbd5e1;
+    font-size: 11.5px;
+    font-weight: 500;
+    padding: 6px 14px;
+    border-radius: 30px;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    transition: all 0.3s ease;
+}
+.hud-pill:hover {
+    border-color: rgba(96, 165, 250, 0.4);
+    background: rgba(30, 41, 59, 0.8);
+    color: #fff;
+    transform: translateY(-2px);
+}
 
 @keyframes float-blob { 0%{transform:translate(0,0) scale(1)} 33%{transform:translate(20px,-40px) scale(1.1)} 66%{transform:translate(-20px,20px) scale(0.9)} 100%{transform:translate(0,0) scale(1)} }
 
@@ -289,51 +549,171 @@ footer a { color: #60a5fa; text-decoration: none; }
     @media (max-width: 991px) {
         .custom-cursor { display: none !important; }
         body, a, button, .faq-q, .ptab, .feat-card, .price-card { cursor: auto !important; }
-        section { padding: 50px 0 !important; }
+        section { padding: 45px 0 !important; }
     }
     @media (max-width: 767px) {
-        section { padding: 40px 0 !important; }
-        .hero-section h1 { font-size: 2.2rem !important; }
-        .display-6 { font-size: 2rem !important; }
-    }
-    
-    /* --- ADVANCED MOBILE REFINEMENTS --- */
-    @media (max-width: 767px) {
-        .stat-banner {
-            margin-top: 20px !important; /* Prevent overlap with hero buttons */
+        section { padding: 35px 0 !important; }
+        
+        /* Hero Refinements */
+        .hero-section { padding: 75px 0 65px !important; }
+        .hero-section h1 { font-size: 1.85rem !important; line-height: 1.25 !important; letter-spacing: -0.5px !important; }
+        .hero-section p { font-size: 14.5px !important; line-height: 1.6 !important; margin-bottom: 22px !important; }
+        .hero-badge { font-size: 11px !important; padding: 4px 12px !important; }
+        .btn-fbm-primary { font-size: 14px !important; padding: 12px 22px !important; }
+        
+        /* Headings & Badges */
+        .display-6 { font-size: 1.55rem !important; line-height: 1.3 !important; }
+        .sec-badge { font-size: 11px !important; padding: 4px 12px !important; }
+        
+        /* ===== CYBER PREVIEW SECTION MOBILE ===== */
+        .preview-cyber-section {
+            padding: 40px 0 !important;
         }
-        .floating-wa {
-            width: 50px !important;
-            height: 50px !important;
-            font-size: 26px !important;
-            bottom: 16px !important;
-            right: 16px !important;
+        /* Disable heavy laser beam animation on mobile (saves GPU) */
+        .web3-beam-wrapper::before {
+            animation-duration: 6s !important;
         }
-        #btt {
-            width: 40px !important;
-            height: 40px !important;
-            font-size: 16px !important;
-            bottom: 16px !important;
-            left: 16px !important;
+        /* Disable mesh orbs clip overflow on small screens */
+        .web3-glow-mesh {
+            width: 300px !important;
+            height: 300px !important;
+            filter: blur(40px) !important;
         }
-        .hero-stats {
-            gap: 12px !important;
+        .cyber-grid-overlay {
+            background-size: 22px 22px !important;
         }
-        .stat-banner {
-            padding: 20px 15px !important;
+
+        /* Beam wrappers */
+        .web3-beam-wrapper {
+            border-radius: 10px !important;
+            padding: 1px !important;
+            margin-bottom: 1.2rem !important;
         }
-    }
-    
-    @media (max-width: 576px) {
-        .spec-row {
+        .modern-img-frame-inner {
+            border-radius: 9.5px !important;
+        }
+        .modern-img-frame-header, .video-window-header {
+            padding: 6px 10px !important;
+            min-height: 27px !important;
+        }
+        .window-dots { gap: 4px !important; }
+        .window-dot { width: 6px !important; height: 6px !important; }
+        .modern-img-frame-title, .video-window-title {
+            font-size: 9.5px !important;
+            max-width: 72% !important;
+            white-space: nowrap !important;
+            overflow: hidden !important;
+            text-overflow: ellipsis !important;
+        }
+        .web3-status-tag { font-size: 9px !important; }
+        .web3-live-indicator { width: 4px !important; height: 4px !important; }
+
+        /* HUD pills — stack neatly on mobile */
+        .hud-pills-row {
+            gap: 8px !important;
+            margin-top: 1rem !important;
+            margin-bottom: 1.8rem !important;
+            justify-content: flex-start !important;
+            overflow-x: auto !important;
+            flex-wrap: nowrap !important;
+            padding-bottom: 4px !important;
+            -webkit-overflow-scrolling: touch !important;
+            scrollbar-width: none !important;
+            -ms-overflow-style: none !important;
+        }
+        .hud-pills-row::-webkit-scrollbar {
+            display: none !important;
+            width: 0 !important;
+            height: 0 !important;
+        }
+        .hud-pill {
+            font-size: 10.5px !important;
+            padding: 5px 11px !important;
+            white-space: nowrap !important;
+            flex-shrink: 0 !important;
+        }
+
+        /* VIDEO SHOWCASE — MOBILE FIRST */
+        .video-frame-inner {
+            padding-top: 70.2646% !important;
+        }
+        .video-footer-bar {
+            padding: 7px 10px !important;
             flex-direction: column !important;
             align-items: flex-start !important;
-            gap: 4px !important;
-            padding: 8px 0 !important;
+            gap: 6px !important;
         }
-        .spec-val {
-            margin-left: 0 !important;
-            text-align: left !important;
+        .video-pill-badge {
+            font-size: 9px !important;
+            padding: 2px 7px !important;
+        }
+
+        /* Modern App Windows */
+        .modern-img-frame, .video-browser-window {
+            border-radius: 10px !important;
+            margin-bottom: 1.2rem !important;
+        }
+
+        /* Pricing Cards */
+        .price-card {
+            padding: 24px 18px !important;
+            border-radius: 16px !important;
+        }
+        .price-amount-val { font-size: 38px !important; }
+        .popular-badge {
+            font-size: 10px !important;
+            padding: 3px 12px !important;
+            top: -11px !important;
+        }
+
+        /* Feature Cards */
+        .feat-mod-card {
+            padding: 20px 16px !important;
+            border-radius: 16px !important;
+        }
+        .feat-mod-icon {
+            width: 46px !important;
+            height: 46px !important;
+            font-size: 18px !important;
+            border-radius: 10px !important;
+        }
+
+        /* Workflow Cards */
+        .wf-card { padding: 22px 14px !important; border-radius: 16px !important; }
+        .wf-num { width: 48px !important; height: 48px !important; font-size: 18px !important; margin-bottom: 12px !important; }
+
+        .stat-banner { margin-top: 20px !important; padding: 20px 15px !important; }
+        .floating-wa { width: 50px !important; height: 50px !important; font-size: 26px !important; bottom: 16px !important; right: 16px !important; }
+        #btt { width: 40px !important; height: 40px !important; font-size: 16px !important; bottom: 16px !important; left: 16px !important; }
+        .hero-stats { gap: 12px !important; }
+    }
+
+    @media (max-width: 576px) {
+        .spec-row { flex-direction: column !important; align-items: flex-start !important; gap: 4px !important; padding: 8px 0 !important; }
+        .spec-val { margin-left: 0 !important; text-align: left !important; }
+        /* Section header text on xs phones */
+        .preview-cyber-section h2 { font-size: 1.35rem !important; }
+        .preview-cyber-section p { font-size: 12.5px !important; }
+        /* Keep laser beam ON but slower — still looks great on phones */
+        .web3-beam-wrapper::before {
+            animation: rotateLaserBeam 5s linear infinite !important;
+            background: conic-gradient(from 0deg, transparent 0 310deg, #60a5fa 340deg, #a855f7 360deg) !important;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-section h1 { font-size: 1.65rem !important; }
+        .modern-img-frame-title, .video-window-title { font-size: 9px !important; max-width: 60% !important; }
+        .video-frame-inner { padding-top: 70.2646% !important; }
+        .hud-pills-row { gap: 6px !important; }
+        .hud-pill { font-size: 10px !important; padding: 4px 10px !important; }
+        /* Keep laser beam visible on smallest phones too */
+        .web3-beam-wrapper::before {
+            animation: rotateLaserBeam 6s linear infinite !important;
+        }
+        /* Fully contain video glow on tiny screens */
+        .video-glow-backdrop {
+            display: none !important;
         }
     }
 </style>
@@ -390,7 +770,7 @@ footer a { color: #60a5fa; text-decoration: none; }
             FBM Prime is a professional, fully undetectable Facebook automation tool. Auto Registration, Smart Profile Builder, Page Creation, and Active Interaction — all in one powerful desktop software.
         </p>
         <div class="d-flex justify-content-center gap-3 flex-wrap">
-            <a href="https://github.com/mrtechpk1-ai/FBMprime/releases/download/v1.2.0/FBM_Prime_Reg.exe" class="btn-fbm-primary fs-5 px-5 py-3" target="_blank" rel="noopener noreferrer">
+            <a href="https://github.com/mrtechpk1-ai/FBMprime/releases/download/V1.0.0/FBM_Prime_Reg.exe" class="btn-fbm-primary fs-5 px-5 py-3" target="_blank" rel="noopener noreferrer">
                 <i class="fa-solid fa-download me-2"></i> Download FBMPRIME Reg Now
             </a>
             <a href="#features" class="btn btn-outline-light btn-lg rounded-pill px-4 fw-semibold">
@@ -428,16 +808,131 @@ footer a { color: #60a5fa; text-decoration: none; }
     </div>
 </div>
 
-<!-- DASHBOARD PREVIEW -->
-<section class="py-5" data-aos="zoom-in" data-aos-duration="1000">
-    <div class="container" style="max-width:1100px;">
-        <div class="text-center mb-4">
-            <span class="sec-badge"><i class="fa-solid fa-desktop me-1"></i> Live Dashboard Preview</span>
+<!-- DASHBOARD PREVIEW - NEXT-GEN CYBER DARK -->
+<section class="preview-cyber-section py-5 position-relative overflow-hidden" data-aos="zoom-in" data-aos-duration="1000">
+    <!-- Cyber Grid BG -->
+    <div class="cyber-grid-overlay"></div>
+    <!-- Ambient Glow Orbs -->
+    <div class="web3-glow-mesh web3-mesh-1"></div>
+    <div class="web3-glow-mesh web3-mesh-2"></div>
+
+    <div class="container position-relative" style="max-width:1100px; z-index:3;">
+        <!-- Section Header -->
+        <div class="text-center mb-5">
+            <span class="sec-badge mb-2 d-inline-block" style="background:rgba(59,130,246,0.12); color:#93c5fd; border:1px solid rgba(59,130,246,0.3);">
+                <i class="fa-solid fa-desktop me-1"></i> Live Interface &amp; Demo
+            </span>
+            <h2 class="fw-extrabold mt-1 mb-2" style="font-size:clamp(1.6rem,4vw,2.4rem); letter-spacing:-0.5px; color:#f1f5f9;">
+                Desktop Application &amp; <span style="background:linear-gradient(90deg,#60a5fa,#a78bfa); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Multi-Browser Grid</span>
+            </h2>
+            <p class="mb-0" style="color:#64748b; font-size:14px;">Real-time automation running inside isolated browser sessions</p>
         </div>
-        <div class="position-relative">
-            <div class="text-center mb-3"><span class="badge bg-primary text-white fw-bold px-4 py-2 rounded-pill shadow"><i class="fa-solid fa-bolt me-1"></i> Live Dashboard Preview</span></div>
-            <img src="dashboard_top.png" alt="FBM Prime Dashboard - Top" class="w-100 rounded-4 shadow-lg mb-3" style="border: 1px solid var(--border);">
-            <img src="dashboard_bottom.png" alt="FBM Prime Dashboard - Bottom" class="w-100 rounded-4 shadow-lg" style="border: 1px solid var(--border);">
+
+        <div class="position-relative mt-2">
+
+            <!-- TOP DASHBOARD — LASER BEAM FRAME -->
+            <div class="web3-beam-wrapper" data-aos="fade-up">
+                <div class="modern-img-frame-inner">
+                    <div class="modern-img-frame-header">
+                        <div class="window-dots">
+                            <span class="window-dot dot-red"></span>
+                            <span class="window-dot dot-yellow"></span>
+                            <span class="window-dot dot-green"></span>
+                        </div>
+                        <div class="modern-img-frame-title">
+                            <span>FBM Prime &bull; Main Control Dashboard</span>
+                        </div>
+                        <span class="web3-status-tag"><span class="web3-live-indicator"></span> v3.0 Active</span>
+                    </div>
+                    <picture>
+                        <source srcset="dashboard_top.webp" type="image/webp">
+                        <img src="dashboard_top.webp" alt="FBM Prime Dashboard - Top" class="w-100" loading="lazy" decoding="async">
+                    </picture>
+                </div>
+            </div>
+
+            <!-- BOTTOM DASHBOARD — LASER BEAM FRAME -->
+            <div class="web3-beam-wrapper" data-aos="fade-up" data-aos-delay="100" style="--beam-color1:#a78bfa; --beam-color2:#34d399;">
+                <div class="modern-img-frame-inner">
+                    <div class="modern-img-frame-header">
+                        <div class="window-dots">
+                            <span class="window-dot dot-red"></span>
+                            <span class="window-dot dot-yellow"></span>
+                            <span class="window-dot dot-green"></span>
+                        </div>
+                        <div class="modern-img-frame-title">
+                            <span>FBM Prime &bull; Automation Settings &amp; Task Queues</span>
+                        </div>
+                        <span class="web3-status-tag"><span class="web3-live-indicator" style="background:#3b82f6; box-shadow:0 0 6px #3b82f6;"></span> Queue Ready</span>
+                    </div>
+                    <picture>
+                        <source srcset="dashboard_bottom.webp" type="image/webp">
+                        <img src="dashboard_bottom.webp" alt="FBM Prime Dashboard - Bottom" class="w-100" loading="lazy" decoding="async">
+                    </picture>
+                </div>
+            </div>
+
+            <!-- BROWSER CONTAINER — LASER BEAM FRAME -->
+            <div class="web3-beam-wrapper" data-aos="fade-up" data-aos-delay="150" style="--beam-color1:#10b981; --beam-color2:#06b6d4;">
+                <div class="modern-img-frame-inner">
+                    <div class="modern-img-frame-header">
+                        <div class="window-dots">
+                            <span class="window-dot dot-red"></span>
+                            <span class="window-dot dot-yellow"></span>
+                            <span class="window-dot dot-green"></span>
+                        </div>
+                        <div class="modern-img-frame-title">
+                            <span>FBM Prime &bull; Isolated Multi-Browser Grid (Anti-Detect Proxy)</span>
+                        </div>
+                        <span class="web3-status-tag"><span class="web3-live-indicator" style="background:#10b981; box-shadow:0 0 6px #10b981;"></span> Proxy Grid</span>
+                    </div>
+                    <picture>
+                        <source srcset="browsercontainer.webp" type="image/webp">
+                        <img src="browsercontainer.webp" alt="FBM Prime Multi-Browser Container" class="w-100" loading="lazy" decoding="async">
+                    </picture>
+                </div>
+            </div>
+
+            <!-- HUD INFO PILLS -->
+            <div class="hud-pills-row" data-aos="fade-up" data-aos-delay="180">
+                <span class="hud-pill"><i class="fa-solid fa-microchip text-blue-400" style="color:#60a5fa;"></i> Multi-Thread Engine</span>
+                <span class="hud-pill"><i class="fa-solid fa-shield-halved" style="color:#34d399;"></i> Fingerprint Masking</span>
+                <span class="hud-pill"><i class="fa-solid fa-network-wired" style="color:#a78bfa;"></i> Per-Account Proxy</span>
+                <span class="hud-pill"><i class="fa-solid fa-bolt" style="color:#fbbf24;"></i> Zero Downtime Automation</span>
+            </div>
+
+            <!-- VIDEO SHOWCASE — LASER BEAM WRAPPER -->
+            <div class="web3-beam-wrapper" data-aos="fade-up" data-aos-delay="220" style="--beam-color1:#ef4444; --beam-color2:#3b82f6;">
+                <div class="modern-img-frame-inner">
+                    <div class="video-window-header">
+                        <div class="window-dots">
+                            <span class="window-dot dot-red"></span>
+                            <span class="window-dot dot-yellow"></span>
+                            <span class="window-dot dot-green"></span>
+                        </div>
+                        <div class="video-window-title">
+                            <span class="pulse-record-dot"></span>
+                            <span>FBM Prime &bull; Official Feature Walkthrough</span>
+                        </div>
+                        <span class="web3-status-tag"><span class="web3-live-indicator" style="background:#ef4444; box-shadow:0 0 6px #ef4444;"></span> Live Demo</span>
+                    </div>
+
+                    <div class="video-frame-inner">
+                        <iframe loading="lazy" src="https://www.canva.com/design/DAHVzYcunow/0Qr5ioDLceoJHbW-iDSNHg/watch?embed" allowfullscreen="true" webkitallowfullscreen="true" mozallowfullscreen="true" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" title="FBM Prime Demo Video"></iframe>
+                    </div>
+
+                    <div class="video-footer-bar">
+                        <div class="d-flex align-items-center gap-2 flex-wrap">
+                            <span class="video-pill-badge"><i class="fa-solid fa-bolt text-warning me-1"></i> Auto Reg Live</span>
+                            <span class="video-pill-badge"><i class="fa-solid fa-user-check text-success me-1"></i> Profile Setup</span>
+                            <span class="video-pill-badge"><i class="fa-solid fa-shield-halved text-info me-1"></i> Anti-Detect</span>
+                        </div>
+                        <div class="small" style="color:#64748b; font-size:11px;">
+                            Created by <strong style="color:#e2e8f0;">Muhammad Ahmed Ali</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
