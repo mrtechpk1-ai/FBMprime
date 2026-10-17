@@ -1,0 +1,1377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="FBM Prime Demo — Learn how to register Facebook accounts using API phone numbers. Step-by-step visual tutorial.">
+<title>FBM Prime — Demo Tutorials | Facebook Registration Guide</title>
+<link rel="icon" type="image/png" href="fbmprimex_icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<style>
+:root {
+    --primary-blue: #1e3c72;
+    --secondary-blue: #2a5298;
+    --accent-blue: #2563eb;
+    --accent-green: #25D366;
+    --dark-navy: #0f172a;
+    --light-bg: #f8fafc;
+    --text-dark: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --font: 'Plus Jakarta Sans', sans-serif;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: var(--font); background: var(--light-bg); color: var(--text-dark); overflow-x: hidden; }
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: var(--accent-blue); border-radius: 3px; }
+
+/* ===== NAVBAR — identical to main site ===== */
+.navbar-fbm {
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    border-bottom: 1px solid var(--border);
+}
+
+/* ===== BUTTONS ===== */
+.btn-fbm-primary {
+    background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+    color: #fff !important;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 32px;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 25px rgba(37,99,235,0.3);
+    transition: all 0.3s ease;
+}
+.btn-fbm-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(37,99,235,0.4); }
+.btn-wa-cta {
+    background: #25D366;
+    color: #fff !important;
+    border: none;
+    border-radius: 50px;
+    padding: 14px 32px;
+    font-weight: 700;
+    font-size: 15px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 8px 25px rgba(37,211,102,0.35);
+    transition: all 0.3s ease;
+}
+.btn-wa-cta:hover { background: #1ebe5c; transform: translateY(-2px); color: #fff; }
+
+/* ===== SECTION LABELS ===== */
+.sec-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--accent-blue);
+    text-transform: uppercase;
+    background: rgba(37,99,235,0.07);
+    border: 1px solid rgba(37,99,235,0.2);
+    padding: 5px 16px;
+    border-radius: 30px;
+    margin-bottom: 14px;
+}
+.sec-line {
+    height: 4px;
+    width: 70px;
+    background: linear-gradient(90deg, var(--primary-blue), #8b5cf6);
+    border-radius: 2px;
+    margin: 16px auto 0;
+}
+
+/* ===== HERO — identical gradient to main site ===== */
+.demo-hero {
+    background: radial-gradient(circle at 30% 20%, rgba(37,99,235,0.18) 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(139,92,246,0.1) 0%, transparent 60%),
+                linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    color: #fff;
+    padding: 90px 0 110px;
+    position: relative;
+    overflow: hidden;
+}
+.demo-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: gridShift 20s linear infinite;
+}
+@keyframes gridShift { 0%{transform:translateY(0)} 100%{transform:translateY(50px)} }
+.demo-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 50px;
+    background: var(--light-bg);
+    clip-path: polygon(0 100%, 100% 100%, 100% 0);
+}
+.hero-badge {
+    background: rgba(37,211,102,0.15);
+    color: #2ecc71;
+    border: 1px solid rgba(37,211,102,0.3);
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 13px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+.hero-badge .dot { width:8px;height:8px;background:#2ecc71;border-radius:50%;animation:dotPulse 2s infinite; }
+@keyframes dotPulse { 0%,100%{transform:scale(1);opacity:1} 50%{transform:scale(1.4);opacity:0.6} }
+.hero-grad { background: linear-gradient(90deg, #60a5fa, #a78bfa); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+
+/* ===== DEMO SECTION ===== */
+.demo-section {
+    padding: 72px 0;
+    background: var(--light-bg);
+}
+.demo-section.alt-bg {
+    background: #fff;
+}
+
+/* ===== SLIDE FRAME — same laser beam as product page ===== */
+.slide-beam-wrapper {
+    position: relative;
+    border-radius: 16px;
+    padding: 1.5px;
+    background: rgba(255,255,255,0.08);
+    overflow: hidden;
+    box-shadow: 0 24px 60px -16px rgba(0,0,0,0.22), 0 0 0 1px rgba(255,255,255,0.06);
+    transition: all 0.4s ease;
+}
+.slide-beam-wrapper::before {
+    content: '';
+    position: absolute;
+    inset: -100%;
+    background: conic-gradient(from 0deg, transparent 0 320deg, #2563eb 345deg, #8b5cf6 360deg);
+    animation: rotateLaser 4s linear infinite;
+    pointer-events: none;
+    z-index: 1;
+}
+@keyframes rotateLaser { 100% { transform: rotate(360deg); } }
+.slide-beam-wrapper:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 30px 70px -16px rgba(0,0,0,0.3), 0 0 30px rgba(37,99,235,0.25);
+}
+.slide-inner {
+    position: relative;
+    background: #080d1a;
+    border-radius: 14.5px;
+    overflow: hidden;
+    z-index: 2;
+}
+.slide-header {
+    background: rgba(15,23,42,0.95);
+    backdrop-filter: blur(12px);
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    min-height: 34px;
+    gap: 8px;
+}
+.slide-dots { display: flex; gap: 5px; align-items: center; flex-shrink: 0; }
+.slide-dot { width: 7.5px; height: 7.5px; border-radius: 50%; opacity: 0.75; }
+.dot-r { background: #ef4444; }
+.dot-y { background: #eab308; }
+.dot-g { background: #22c55e; }
+.slide-title {
+    color: #94a3b8;
+    font-size: 11px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+    justify-content: center;
+    max-width: 60%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.slide-nav-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(37,99,235,0.18);
+    border: 1px solid rgba(59,130,246,0.35);
+    color: #93c5fd;
+    font-size: 10.5px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.2px;
+}
+.slide-nav-arrow {
+    display: inline-block;
+    animation: bounceRight 1.6s ease-in-out infinite;
+    color: #60a5fa;
+}
+@keyframes bounceRight {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(3px); }
+}
+
+.slide-status-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    background: rgba(15,23,42,0.7);
+    border: 1px solid rgba(255,255,255,0.08);
+    color: #94a3b8;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 20px;
+    flex-shrink: 0;
+}
+.live-dot {
+    width: 5px; height: 5px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 6px #22c55e;
+    animation: blinkDot 1.5s infinite;
+}
+@keyframes blinkDot { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+.slide-frame {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 68.7219%;
+    overflow: hidden;
+    background: #000;
+}
+.slide-frame.slide-frame-16x9 {
+    padding-top: 56.25%;
+}
+.slide-frame iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: none;
+    animation: slideNudgeIn 4.5s ease-in-out infinite alternate;
+}
+
+/* Subtle organic slide nudge so viewer instantly recognizes it's interactive slides */
+@keyframes slideNudgeIn {
+    0%, 80% { transform: translateX(0); }
+    88% { transform: translateX(4px); }
+    94% { transform: translateX(-2px); }
+    100% { transform: translateX(0); }
+}
+
+/* Floating interactive cue floating badge */
+.slide-interact-tip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(37,99,235,0.25);
+    box-shadow: 0 6px 18px rgba(37,99,235,0.1);
+    color: var(--primary-blue);
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 16px;
+    border-radius: 30px;
+    margin-bottom: 14px;
+    animation: floatTip 3s ease-in-out infinite;
+}
+@keyframes floatTip {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+.slide-interact-tip i {
+    color: var(--accent-blue);
+}
+.slide-footer {
+    background: #060a14;
+    padding: 9px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+.slide-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: rgba(30,41,59,0.8);
+    border: 1px solid rgba(255,255,255,0.07);
+    color: #94a3b8;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 9px;
+    border-radius: 20px;
+}
+.slide-credit { color: #475569; font-size: 11px; }
+.slide-credit strong { color: #94a3b8; }
+
+/* ===== CTA BOX — same as main site ===== */
+.cta-contact-box {
+    background: linear-gradient(135deg, #0f172a 0%, #1e3c72 100%);
+    color: #fff;
+    border-radius: 24px;
+    padding: 50px 40px;
+    position: relative;
+    overflow: hidden;
+}
+.cta-contact-box::before {
+    content: '';
+    position: absolute;
+    width: 350px; height: 350px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 50%;
+    top: -100px; right: -100px;
+}
+
+/* ===== COMING SOON CARDS — same as feat-mod-card ===== */
+.demo-card {
+    background: #fff;
+    border: 1px solid rgba(0,0,0,0.06);
+    border-radius: 20px;
+    padding: 28px 24px;
+    transition: all 0.4s ease;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+.demo-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 4px;
+    background: var(--mc, #2563eb);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+}
+.demo-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); border-color: var(--mc, #2563eb); }
+.demo-card:hover::after { transform: scaleX(1); }
+.demo-card-icon {
+    width: 52px; height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 16px;
+    background: var(--mc-light, rgba(37,99,235,0.08));
+    color: var(--mc, #2563eb);
+    transition: all 0.4s ease;
+}
+.demo-card:hover .demo-card-icon { background: var(--mc, #2563eb); color: #fff; transform: scale(1.1) rotate(-8deg); }
+.demo-card h5 { font-size: 15px; font-weight: 700; color: var(--text-dark); margin-bottom: 8px; }
+.demo-card p { font-size: 13.5px; color: var(--text-muted); line-height: 1.7; margin: 0; }
+.soon-badge {
+    display: inline-block;
+    background: rgba(37,99,235,0.07);
+    border: 1px solid rgba(37,99,235,0.18);
+    color: var(--accent-blue);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 20px;
+    margin-top: 12px;
+}
+
+/* ===== FLOATING WA ===== */
+.floating-wa {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    z-index: 9999;
+    width: 60px; height: 60px;
+    background: #25D366;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    text-decoration: none;
+    box-shadow: 0 8px 25px rgba(37,211,102,0.4);
+    animation: pulseWa 2.5s infinite;
+    transition: transform 0.3s;
+}
+.floating-wa:hover { transform: scale(1.15) rotate(-5deg); color: #fff; }
+@keyframes pulseWa { 0%{box-shadow:0 0 0 0 rgba(37,211,102,0.6)} 70%{box-shadow:0 0 0 14px rgba(37,211,102,0)} 100%{box-shadow:0 0 0 0 rgba(37,211,102,0)} }
+
+/* ===== BACK TO TOP ===== */
+#btt {
+    position: fixed; bottom: 28px; left: 28px;
+    z-index: 9999;
+    width: 50px; height: 50px;
+    background: var(--primary-blue);
+    color: #fff;
+    border-radius: 50%;
+    border: none;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    opacity: 0; visibility: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+#btt.show { opacity: 1; visibility: visible; }
+#btt:hover { transform: translateY(-3px); background: var(--accent-blue); }
+
+/* ===== FOOTER ===== */
+footer {
+    background: var(--dark-navy);
+    color: #94a3b8;
+    padding: 50px 0;
+    text-align: center;
+}
+footer .foot-logo { font-size: 22px; font-weight: 900; color: #fff; font-family: 'Space Grotesk', sans-serif; margin-bottom: 10px; }
+footer a { color: #60a5fa; text-decoration: none; }
+footer a:hover { color: #93c5fd; }
+
+/* ===== MOBILE ===== */
+html, body { overflow-x: hidden; }
+@media (max-width: 767px) {
+    .demo-hero { padding: 60px 0 80px; }
+    .demo-hero h1 { font-size: 1.75rem !important; }
+    .demo-section { padding: 48px 0; }
+    .slide-beam-wrapper::before { animation-duration: 6s; }
+    .slide-title { font-size: 9.5px; max-width: 65%; }
+    .slide-footer { flex-direction: column; align-items: flex-start; }
+    .cta-contact-box { padding: 36px 22px; }
+    .btn-fbm-primary, .btn-wa-cta { font-size: 14px; padding: 12px 22px; width: 100%; justify-content: center; }
+    .floating-wa { width: 52px; height: 52px; font-size: 26px; bottom: 18px; right: 18px; }
+    #btt { width: 42px; height: 42px; font-size: 16px; bottom: 18px; left: 18px; }
+}
+@media (max-width: 480px) {
+    .slide-header { padding: 6px 10px; }
+    .slide-dot { width: 6.5px; height: 6.5px; }
+}
+</style>
+</head>
+<body>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/923241703901?text=Hi!+I+want+to+know+more+about+FBM+Prime" class="floating-wa" target="_blank" rel="noopener noreferrer" title="Chat with Support">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- BACK TO TOP -->
+<button id="btt" title="Back to top"><i class="fa-solid fa-arrow-up"></i></button>
+
+<!-- ===== NAVBAR — same as main site ===== -->
+<nav class="navbar navbar-expand-lg navbar-fbm sticky-top py-3">
+    <div class="container">
+        <a class="navbar-brand d-flex align-items-center gap-2" href="../">
+            <span class="fw-extrabold text-primary fs-5 border-end border-2 pe-2 me-1" style="border-color:#2563eb!important;letter-spacing:0.5px;">FBMPrime</span>
+            <span class="fw-bold text-dark d-inline" style="font-size:clamp(10px,2.8vw,14px);">Facebook Automation Software</span>
+        </a>
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navDemo">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navDemo">
+            <ul class="navbar-nav mx-auto align-items-center gap-1">
+                <li class="nav-item"><a class="nav-link fw-semibold small" href="../#features">Features</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold small" href="../#workflow">How It Works</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold small" href="../#pricing">Pricing</a></li>
+                <li class="nav-item"><a class="nav-link fw-semibold small" href="../#faq">FAQ</a></li>
+                <li class="nav-item"><a class="nav-link fw-bold small active" href="#" style="color:#2563eb;"><i class="fa-solid fa-play-circle me-1"></i>Demo</a></li>
+            </ul>
+            <div class="d-flex align-items-center gap-2">
+                <a href="../" class="btn btn-outline-secondary btn-sm fw-bold rounded-pill px-3">
+                    <i class="fa-solid fa-arrow-left me-1"></i> Main Site
+                </a>
+                <a href="../#pricing" class="btn-fbm-primary py-2 px-4 rounded-pill" style="font-size:14px;">
+                    <i class="fa-solid fa-bolt"></i> Buy Now
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="demo-hero text-center position-relative">
+    <div class="container position-relative" style="z-index:2; max-width:750px;">
+        <div class="hero-badge mb-3" data-aos="fade-down" data-aos-duration="700">
+            <span class="dot"></span>
+            <i class="fa-solid fa-play-circle"></i> Demo Tutorials
+        </div>
+        <h1 class="display-5 fw-extrabold text-white mb-3" style="font-family:'Space Grotesk',sans-serif; letter-spacing:-0.5px;" data-aos="fade-up" data-aos-delay="100">
+            FBMPrime <span class="hero-grad">Registration</span><br>Demo Tutorials
+        </h1>
+        <p class="text-white-50 mb-0" style="font-size:15px; line-height:1.7; max-width:520px; margin:0 auto;" data-aos="fade-up" data-aos-delay="200">
+            Watch how FBM Prime automates Facebook account creation — start to finish.
+        </p>
+    </div>
+</section>
+
+<!-- ===== DEMO 01 — API PHONE REGISTRATION ===== -->
+<section class="demo-section">
+    <div class="container" style="max-width:1000px;">
+
+        <!-- Section Heading -->
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="sec-badge"><i class="fa-solid fa-circle me-1" style="font-size:8px; color:#22c55e;"></i> Demo 01</span>
+            <h2 class="fw-extrabold text-dark display-6 mt-1 mb-2">
+                How to Register Facebook Account<br>
+                with <span style="background:linear-gradient(90deg,#2563eb,#8b5cf6); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">API Phone Numbers</span>
+            </h2>
+            <div class="sec-line mx-auto"></div>
+        </div>
+
+        <!-- VIDEO EMBED 01 -->
+        <div class="slide-beam-wrapper" data-aos="fade-up" data-aos-delay="100" data-aos-duration="900">
+            <div class="slide-inner">
+
+                <!-- Browser bar -->
+                <div class="slide-header">
+                    <div class="slide-dots">
+                        <div class="slide-dot dot-r"></div>
+                        <div class="slide-dot dot-y"></div>
+                        <div class="slide-dot dot-g"></div>
+                    </div>
+                    <div class="slide-title">
+                        <i class="fa-solid fa-play-circle" style="color:#60a5fa;"></i>
+                        FBM Prime &bull; How to Reg Facebook Account with API Phone Numbers
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="slide-status-tag">
+                            <span class="live-dot"></span> Video Walkthrough
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Canva Embed -->
+                <div class="slide-frame slide-frame-16x9">
+                    <iframe
+                        loading="lazy"
+                        src="https://www.canva.com/design/DAHYMYypZ5Q/M1OX2eLVTLp5SVY6COiPFw/watch?embed"
+                        allowfullscreen="allowfullscreen"
+                        allow="fullscreen"
+                        title="How to reg facebook account with Api Phone Numbers">
+                    </iframe>
+                </div>
+
+                <!-- Footer bar -->
+                <div class="slide-footer">
+                    <div class="d-flex align-items-center gap-2 flex-wrap">
+                        <span class="slide-pill"><i class="fa-solid fa-phone" style="color:#60a5fa;"></i> API Phone OTP</span>
+                        <span class="slide-pill"><i class="fa-solid fa-user-plus" style="color:#22c55e;"></i> Auto Registration</span>
+                        <span class="slide-pill"><i class="fa-solid fa-shield-halved" style="color:#a78bfa;"></i> Anti-Detect</span>
+                    </div>
+                    <div class="slide-credit">By <strong>Muhammad Ahmed Ali</strong></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== DEMO 02 — OUTLOOK / HOTMAIL REGISTRATION ===== -->
+<section class="demo-section alt-bg">
+    <div class="container" style="max-width:1000px;">
+
+        <!-- Section Heading -->
+        <div class="text-center mb-4" data-aos="fade-up">
+            <span class="sec-badge"><i class="fa-solid fa-circle me-1" style="font-size:8px; color:#2563eb;"></i> Demo 02</span>
+            <h2 class="fw-extrabold text-dark display-6 mt-1 mb-2">
+                How to Register Facebook Account<br>
+                via <span style="background:linear-gradient(90deg,#0284c7,#2563eb); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Outlook / Hotmail API</span>
+            </h2>
+            <div class="sec-line mx-auto"></div>
+        </div>
+
+        <!-- SLIDES / VIDEO EMBED 02 -->
+        <div class="slide-beam-wrapper" data-aos="fade-up" data-aos-delay="100" data-aos-duration="900" style="--beam-color1:#0284c7; --beam-color2:#3b82f6;">
+            <div class="slide-inner">
+
+                <!-- Browser bar -->
+                <div class="slide-header">
+                    <div class="slide-dots">
+                        <div class="slide-dot dot-r"></div>
+                        <div class="slide-dot dot-y"></div>
+                        <div class="slide-dot dot-g"></div>
+                    </div>
+                    <div class="slide-title">
+                        <i class="fa-solid fa-envelope-open-text" style="color:#0284c7;"></i>
+                        FBM Prime &bull; How to Reg FB Account via Outlook / Hotmail API
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="slide-status-tag">
+                            <span class="live-dot" style="background:#0284c7; box-shadow:0 0 6px #0284c7;"></span> Video Walkthrough
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Canva Embed -->
+                <div class="slide-frame slide-frame-16x9">
+                    <iframe
+                        loading="lazy"
+                        src="https://www.canva.com/design/DAHYK-BMiOM/ipZ2ZfeLispVzay-p-mUtQ/watch?embed"
+                        allowfullscreen="allowfullscreen"
+                        allow="fullscreen"
+                        title="How to reg fb account via outlool / hotmail api">
+                    </iframe>
+                </div>
+
+                <!-- Footer bar -->
+                <div class="slide-footer">
+                    <div class="d-flex align-items-center gap-2 flex-wrap">
+                        <span class="slide-pill"><i class="fa-solid fa-envelope" style="color:#38bdf8;"></i> Outlook / Hotmail API</span>
+                        <span class="slide-pill"><i class="fa-solid fa-robot" style="color:#22c55e;"></i> Auto OTP Extraction</span>
+                        <span class="slide-pill"><i class="fa-solid fa-shield-halved" style="color:#a78bfa;"></i> Isolated Session</span>
+                    </div>
+                    <div class="slide-credit">By <strong>Muhammad Ahmed Ali</strong></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== DEMO 03 — PROXY SETUP ===== -->
+<section class="demo-section">
+    <div class="container" style="max-width:1000px;">
+
+        <!-- Section Heading -->
+        <div class="text-center mb-4" data-aos="fade-up">
+            <span class="sec-badge"><i class="fa-solid fa-circle me-1" style="font-size:8px; color:#8b5cf6;"></i> Demo 03</span>
+            <h2 class="fw-extrabold text-dark display-6 mt-1 mb-2">
+                How to Setup Proxy for Chrome Browser<br>
+                in <span style="background:linear-gradient(90deg,#8b5cf6,#2563eb); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">FBMPrime - Reg</span>
+            </h2>
+            <div class="sec-line mx-auto"></div>
+        </div>
+
+        <!-- VIDEO EMBED 03 -->
+        <div class="slide-beam-wrapper" data-aos="fade-up" data-aos-delay="100" data-aos-duration="900" style="--beam-color1:#8b5cf6; --beam-color2:#10b981;">
+            <div class="slide-inner">
+
+                <!-- Browser bar -->
+                <div class="slide-header">
+                    <div class="slide-dots">
+                        <div class="slide-dot dot-r"></div>
+                        <div class="slide-dot dot-y"></div>
+                        <div class="slide-dot dot-g"></div>
+                    </div>
+                    <div class="slide-title">
+                        <i class="fa-solid fa-network-wired" style="color:#8b5cf6;"></i>
+                        FBM Prime &bull; How to Setup Proxy for Chrome Browser in FBMPrime - Reg
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="slide-status-tag">
+                            <span class="live-dot" style="background:#8b5cf6; box-shadow:0 0 6px #8b5cf6;"></span> Video Walkthrough
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Canva Embed -->
+                <div class="slide-frame slide-frame-16x9">
+                    <iframe
+                        loading="lazy"
+                        src="https://www.canva.com/design/DAHYMxNymDQ/1IcDGWL52T6KOA0Oy3f8RA/watch?embed"
+                        allowfullscreen="allowfullscreen"
+                        allow="fullscreen"
+                        title="How to Setup Proxy for chrome Browser in FBMPrime  Reg">
+                    </iframe>
+                </div>
+
+                <!-- Footer bar -->
+                <div class="slide-footer">
+                    <div class="d-flex align-items-center gap-2 flex-wrap">
+                        <span class="slide-pill"><i class="fa-solid fa-network-wired" style="color:#a78bfa;"></i> HTTP / SOCKS5</span>
+                        <span class="slide-pill"><i class="fa-solid fa-shield-halved" style="color:#34d399;"></i> Anti-Detect Proxy Grid</span>
+                        <span class="slide-pill"><i class="fa-solid fa-fingerprint" style="color:#60a5fa;"></i> IP Rotation</span>
+                    </div>
+                    <div class="slide-credit">By <strong>Muhammad Ahmed Ali</strong></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== DEMO 04 — ACTIVE INTERACTION OVERVIEW ===== -->
+<section class="demo-section alt-bg">
+    <div class="container" style="max-width:1000px;">
+
+        <!-- Section Heading -->
+        <div class="text-center mb-4" data-aos="fade-up">
+            <span class="sec-badge"><i class="fa-solid fa-circle me-1" style="font-size:8px; color:#10b981;"></i> Demo 04</span>
+            <h2 class="fw-extrabold text-dark display-6 mt-1 mb-2">
+                Overview of <span style="background:linear-gradient(90deg,#10b981,#2563eb); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Active Interaction Mode</span>
+            </h2>
+            <div class="sec-line mx-auto"></div>
+        </div>
+
+        <!-- VIDEO EMBED 04 -->
+        <div class="slide-beam-wrapper" data-aos="fade-up" data-aos-delay="100" data-aos-duration="900" style="--beam-color1:#10b981; --beam-color2:#3b82f6;">
+            <div class="slide-inner">
+
+                <!-- Browser bar -->
+                <div class="slide-header">
+                    <div class="slide-dots">
+                        <div class="slide-dot dot-r"></div>
+                        <div class="slide-dot dot-y"></div>
+                        <div class="slide-dot dot-g"></div>
+                    </div>
+                    <div class="slide-title">
+                        <i class="fa-solid fa-bolt" style="color:#10b981;"></i>
+                        FBM Prime &bull; Overview of Active-Interaction Mode
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="slide-status-tag">
+                            <span class="live-dot" style="background:#10b981; box-shadow:0 0 6px #10b981;"></span> Video Walkthrough
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Canva Embed -->
+                <div class="slide-frame slide-frame-16x9">
+                    <iframe
+                        loading="lazy"
+                        src="https://www.canva.com/design/DAHYNE_ZRko/-9RoHkqGjRzYjkwrWU9Bwg/watch?embed"
+                        allowfullscreen="allowfullscreen"
+                        allow="fullscreen"
+                        title="Overview of Active-Interaction Mode">
+                    </iframe>
+                </div>
+
+                <!-- Footer bar -->
+                <div class="slide-footer">
+                    <div class="d-flex align-items-center gap-2 flex-wrap">
+                        <span class="slide-pill"><i class="fa-solid fa-bolt" style="color:#10b981;"></i> Active Interaction</span>
+                        <span class="slide-pill"><i class="fa-solid fa-heart" style="color:#ef4444;"></i> Auto Feed Warmup</span>
+                        <span class="slide-pill"><i class="fa-solid fa-shield-halved" style="color:#60a5fa;"></i> Natural Engagement</span>
+                    </div>
+                    <div class="slide-credit">By <strong>Muhammad Ahmed Ali</strong></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== DEMO 05 — NOVERY FACEBOOK REGISTRATION ===== -->
+<section class="demo-section">
+    <div class="container" style="max-width:1000px;">
+
+        <!-- Section Heading -->
+        <div class="text-center mb-4" data-aos="fade-up">
+            <span class="sec-badge"><i class="fa-solid fa-circle me-1" style="font-size:8px; color:#ef4444;"></i> Demo 05</span>
+            <h2 class="fw-extrabold text-dark display-6 mt-1 mb-2">
+                How to Reg Facebook <span style="background:linear-gradient(90deg,#ef4444,#f59e0b); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Novery Accounts</span> by Chrome Browser
+            </h2>
+            <div class="sec-line mx-auto"></div>
+        </div>
+
+        <!-- VIDEO EMBED 05 -->
+        <div class="slide-beam-wrapper" data-aos="fade-up" data-aos-delay="100" data-aos-duration="900" style="--beam-color1:#ef4444; --beam-color2:#f59e0b;">
+            <div class="slide-inner">
+
+                <!-- Browser bar -->
+                <div class="slide-header">
+                    <div class="slide-dots">
+                        <div class="slide-dot dot-r"></div>
+                        <div class="slide-dot dot-y"></div>
+                        <div class="slide-dot dot-g"></div>
+                    </div>
+                    <div class="slide-title">
+                        <i class="fa-brands fa-chrome" style="color:#ef4444;"></i>
+                        FBM Prime &bull; Reg FB Novery Accounts by Chrome Browser (Random Mode)
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="slide-status-tag">
+                            <span class="live-dot" style="background:#ef4444; box-shadow:0 0 6px #ef4444;"></span> Video Walkthrough
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Canva Embed -->
+                <div class="slide-frame slide-frame-16x9">
+                    <iframe
+                        loading="lazy"
+                        src="https://www.canva.com/design/DAHYNd9oGIQ/VWr-tESmRqaw_nCEl8ES9g/watch?embed"
+                        allowfullscreen="allowfullscreen"
+                        allow="fullscreen"
+                        title="Select Random Novery Mode">
+                    </iframe>
+                </div>
+
+                <!-- Footer bar -->
+                <div class="slide-footer">
+                    <div class="d-flex align-items-center gap-2 flex-wrap">
+                        <span class="slide-pill"><i class="fa-solid fa-shield-virus" style="color:#ef4444;"></i> Novery Mode</span>
+                        <span class="slide-pill"><i class="fa-brands fa-chrome" style="color:#f59e0b;"></i> Chrome Browser Automation</span>
+                        <span class="slide-pill"><i class="fa-solid fa-shuffle" style="color:#60a5fa;"></i> Random Data Engine</span>
+                    </div>
+                    <div class="slide-credit">By <strong>Muhammad Ahmed Ali</strong></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== DEMO 06 — VERIFY NOVERY ACCOUNTS ===== -->
+<section class="demo-section alt-bg">
+    <div class="container" style="max-width:1000px;">
+
+        <!-- Section Heading -->
+        <div class="text-center mb-4" data-aos="fade-up">
+            <span class="sec-badge"><i class="fa-solid fa-circle me-1" style="font-size:8px; color:#f59e0b;"></i> Demo 06</span>
+            <h2 class="fw-extrabold text-dark display-6 mt-1 mb-2">
+                How to Verify <span style="background:linear-gradient(90deg,#f59e0b,#10b981); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Novery Accounts</span> by Chrome Browser
+            </h2>
+            <div class="sec-line mx-auto"></div>
+        </div>
+
+        <!-- VIDEO EMBED 06 -->
+        <div class="slide-beam-wrapper" data-aos="fade-up" data-aos-delay="100" data-aos-duration="900" style="--beam-color1:#f59e0b; --beam-color2:#10b981;">
+            <div class="slide-inner">
+
+                <!-- Browser bar -->
+                <div class="slide-header">
+                    <div class="slide-dots">
+                        <div class="slide-dot dot-r"></div>
+                        <div class="slide-dot dot-y"></div>
+                        <div class="slide-dot dot-g"></div>
+                    </div>
+                    <div class="slide-title">
+                        <i class="fa-solid fa-user-check" style="color:#f59e0b;"></i>
+                        FBM Prime &bull; How to Verify Novery Accounts by Chrome Browser
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="slide-status-tag">
+                            <span class="live-dot" style="background:#f59e0b; box-shadow:0 0 6px #f59e0b;"></span> Video Walkthrough
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Canva Embed -->
+                <div class="slide-frame slide-frame-16x9">
+                    <iframe
+                        loading="lazy"
+                        src="https://www.canva.com/design/DAHYNsLq6ug/FdYfcN6mhEFVYrOIZX8RnA/watch?embed"
+                        allowfullscreen="allowfullscreen"
+                        allow="fullscreen"
+                        title="How to Verify Novery Accounts by chrome browser">
+                    </iframe>
+                </div>
+
+                <!-- Footer bar -->
+                <div class="slide-footer">
+                    <div class="d-flex align-items-center gap-2 flex-wrap">
+                        <span class="slide-pill"><i class="fa-solid fa-user-check" style="color:#f59e0b;"></i> Verify Novery</span>
+                        <span class="slide-pill"><i class="fa-brands fa-chrome" style="color:#10b981;"></i> Chrome Browser</span>
+                        <span class="slide-pill"><i class="fa-solid fa-shield-halved" style="color:#60a5fa;"></i> Verification Setup</span>
+                    </div>
+                    <div class="slide-credit">By <strong>Muhammad Ahmed Ali</strong></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== DEMO 07 — PROFILE SETUP IN ACTIVE INTERACTION ===== -->
+<section class="demo-section">
+    <div class="container" style="max-width:1000px;">
+
+        <!-- Section Heading -->
+        <div class="text-center mb-4" data-aos="fade-up">
+            <span class="sec-badge"><i class="fa-solid fa-circle me-1" style="font-size:8px; color:#2563eb;"></i> Demo 07</span>
+            <h2 class="fw-extrabold text-dark display-6 mt-1 mb-2">
+                Facebook Profile Setup Function in <span style="background:linear-gradient(90deg,#2563eb,#8b5cf6); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Active Interaction Mode</span>
+            </h2>
+            <p class="text-muted mt-2 mb-0 fw-semibold" style="font-size: 15px;">
+                ( Set Profile + Cover &amp; about section setup )
+            </p>
+            <div class="sec-line mx-auto"></div>
+        </div>
+
+        <!-- VIDEO EMBED 07 -->
+        <div class="slide-beam-wrapper" data-aos="fade-up" data-aos-delay="100" data-aos-duration="900" style="--beam-color1:#2563eb; --beam-color2:#8b5cf6;">
+            <div class="slide-inner">
+
+                <!-- Browser bar -->
+                <div class="slide-header">
+                    <div class="slide-dots">
+                        <div class="slide-dot dot-r"></div>
+                        <div class="slide-dot dot-y"></div>
+                        <div class="slide-dot dot-g"></div>
+                    </div>
+                    <div class="slide-title">
+                        <i class="fa-solid fa-id-card" style="color:#2563eb;"></i>
+                        FBM Prime &bull; Profile Setup in Active Interaction (Avatar + Cover + About)
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="slide-status-tag">
+                            <span class="live-dot" style="background:#2563eb; box-shadow:0 0 6px #2563eb;"></span> Video Walkthrough
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Canva Embed -->
+                <div class="slide-frame slide-frame-16x9">
+                    <iframe
+                        loading="lazy"
+                        src="https://www.canva.com/design/DAHYN08-IBw/_6PQBJVD0PK2unkOV-oAGg/watch?embed"
+                        allowfullscreen="allowfullscreen"
+                        allow="fullscreen"
+                        title="Select Active Interaction mode">
+                    </iframe>
+                </div>
+
+                <!-- Footer bar -->
+                <div class="slide-footer">
+                    <div class="d-flex align-items-center gap-2 flex-wrap">
+                        <span class="slide-pill"><i class="fa-solid fa-image" style="color:#60a5fa;"></i> Avatar &amp; Cover Photo</span>
+                        <span class="slide-pill"><i class="fa-solid fa-address-card" style="color:#22c55e;"></i> Bio &amp; About Section</span>
+                        <span class="slide-pill"><i class="fa-solid fa-bolt" style="color:#a78bfa;"></i> Active Interaction Mode</span>
+                    </div>
+                    <div class="slide-credit">By <strong>Muhammad Ahmed Ali</strong></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== DEMO 08 — CREATE PAGES FUNCTION ===== -->
+<section class="demo-section alt-bg">
+    <div class="container" style="max-width:1000px;">
+
+        <!-- Section Heading -->
+        <div class="text-center mb-4" data-aos="fade-up">
+            <span class="sec-badge"><i class="fa-solid fa-circle me-1" style="font-size:8px; color:#10b981;"></i> Demo 08</span>
+            <h2 class="fw-extrabold text-dark display-6 mt-1 mb-2">
+                Create Pages Function in <span style="background:linear-gradient(90deg,#10b981,#0284c7); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Active Interaction Mode</span>
+            </h2>
+            <div class="sec-line mx-auto"></div>
+        </div>
+
+        <!-- VIDEO EMBED 08 -->
+        <div class="slide-beam-wrapper" data-aos="fade-up" data-aos-delay="100" data-aos-duration="900" style="--beam-color1:#10b981; --beam-color2:#0284c7;">
+            <div class="slide-inner">
+
+                <!-- Browser bar -->
+                <div class="slide-header">
+                    <div class="slide-dots">
+                        <div class="slide-dot dot-r"></div>
+                        <div class="slide-dot dot-y"></div>
+                        <div class="slide-dot dot-g"></div>
+                    </div>
+                    <div class="slide-title">
+                        <i class="fa-brands fa-facebook-f" style="color:#10b981;"></i>
+                        FBM Prime &bull; Create Pages Function in Active Interaction Mode
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="slide-status-tag">
+                            <span class="live-dot" style="background:#10b981; box-shadow:0 0 6px #10b981;"></span> Video Walkthrough
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Canva Embed -->
+                <div class="slide-frame slide-frame-16x9">
+                    <iframe
+                        loading="lazy"
+                        src="https://www.canva.com/design/DAHYN26WRbA/37jU-Yq6WKdOI0PbarScPw/watch?embed"
+                        allowfullscreen="allowfullscreen"
+                        allow="fullscreen"
+                        title="Create Pages function in Active interaction Mode">
+                    </iframe>
+                </div>
+
+                <!-- Footer bar -->
+                <div class="slide-footer">
+                    <div class="d-flex align-items-center gap-2 flex-wrap">
+                        <span class="slide-pill"><i class="fa-brands fa-facebook-f" style="color:#10b981;"></i> Auto Page Creation</span>
+                        <span class="slide-pill"><i class="fa-solid fa-layer-group" style="color:#0284c7;"></i> Multi-Page Scale</span>
+                        <span class="slide-pill"><i class="fa-solid fa-bolt" style="color:#a78bfa;"></i> Active Interaction Mode</span>
+                    </div>
+                    <div class="slide-credit">By <strong>Muhammad Ahmed Ali</strong></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== DEMO 09 — ADD/CONFIRM FRIENDS FUNCTION ===== -->
+<section class="demo-section">
+    <div class="container" style="max-width:1000px;">
+
+        <!-- Section Heading -->
+        <div class="text-center mb-4" data-aos="fade-up">
+            <span class="sec-badge"><i class="fa-solid fa-circle me-1" style="font-size:8px; color:#ec4899;"></i> Demo 09</span>
+            <h2 class="fw-extrabold text-dark display-6 mt-1 mb-2">
+                Add / Confirm Friends Function in <span style="background:linear-gradient(90deg,#ec4899,#8b5cf6); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">Active Interaction Mode</span>
+            </h2>
+            <p class="text-muted fw-semibold mb-0" style="font-size:15px; letter-spacing:0.3px;">
+                ( Add 30, 50, 100 Friends Safely With This Function )
+            </p>
+            <div class="sec-line mx-auto mt-2"></div>
+        </div>
+
+        <!-- VIDEO EMBED 09 -->
+        <div class="slide-beam-wrapper" data-aos="fade-up" data-aos-delay="100" data-aos-duration="900" style="--beam-color1:#ec4899; --beam-color2:#8b5cf6;">
+            <div class="slide-inner">
+
+                <!-- Browser bar -->
+                <div class="slide-header">
+                    <div class="slide-dots">
+                        <div class="slide-dot dot-r"></div>
+                        <div class="slide-dot dot-y"></div>
+                        <div class="slide-dot dot-g"></div>
+                    </div>
+                    <div class="slide-title">
+                        <i class="fa-solid fa-user-plus" style="color:#ec4899;"></i>
+                        FBM Prime &bull; Add / Confirm Friends Safely (Active Interaction)
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="slide-status-tag">
+                            <span class="live-dot" style="background:#ec4899; box-shadow:0 0 6px #ec4899;"></span> Video Walkthrough
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Canva Embed -->
+                <div class="slide-frame slide-frame-16x9">
+                    <iframe
+                        loading="lazy"
+                        src="https://www.canva.com/design/DAHYONtjZ8g/w36T5H3f-3ouyWgP2o9UfQ/watch?embed"
+                        allowfullscreen="allowfullscreen"
+                        allow="fullscreen"
+                        title="Add/confirm friends function in Active interaction mode">
+                    </iframe>
+                </div>
+
+                <!-- Footer bar -->
+                <div class="slide-footer">
+                    <div class="d-flex align-items-center gap-2 flex-wrap">
+                        <span class="slide-pill"><i class="fa-solid fa-user-plus" style="color:#ec4899;"></i> Add &amp; Confirm Friends</span>
+                        <span class="slide-pill"><i class="fa-solid fa-shield-halved" style="color:#8b5cf6;"></i> 30 / 50 / 100 Safe Limits</span>
+                        <span class="slide-pill"><i class="fa-solid fa-bolt" style="color:#06b6d4;"></i> Active Interaction Mode</span>
+                    </div>
+                    <div class="slide-credit">By <strong>Muhammad Ahmed Ali</strong></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== DEMO 10 — SETUP 2FA KEY AUTHENTICATION ===== -->
+<section class="demo-section alt-bg">
+    <div class="container" style="max-width:1000px;">
+
+        <!-- Section Heading -->
+        <div class="text-center mb-4" data-aos="fade-up">
+            <span class="sec-badge"><i class="fa-solid fa-circle me-1" style="font-size:8px; color:#10b981;"></i> Demo 10</span>
+            <h2 class="fw-extrabold text-dark display-6 mt-1 mb-2">
+                Setup 2FA Key Authentication in <span style="background:linear-gradient(90deg,#10b981,#3b82f6); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">FBMPrime-Reg</span>
+            </h2>
+            <p class="text-muted fw-semibold mb-0" style="font-size:15px; letter-spacing:0.3px;">
+                ( Extract 2FA Key &amp; Safely Import It In Table )
+            </p>
+            <div class="sec-line mx-auto mt-2"></div>
+        </div>
+
+        <!-- VIDEO EMBED 10 -->
+        <div class="slide-beam-wrapper" data-aos="fade-up" data-aos-delay="100" data-aos-duration="900" style="--beam-color1:#10b981; --beam-color2:#3b82f6;">
+            <div class="slide-inner">
+
+                <!-- Browser bar -->
+                <div class="slide-header">
+                    <div class="slide-dots">
+                        <div class="slide-dot dot-r"></div>
+                        <div class="slide-dot dot-y"></div>
+                        <div class="slide-dot dot-g"></div>
+                    </div>
+                    <div class="slide-title">
+                        <i class="fa-solid fa-key" style="color:#10b981;"></i>
+                        FBM Prime &bull; Setup 2FA Key Authentication &amp; Safe Table Import
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="slide-status-tag">
+                            <span class="live-dot" style="background:#10b981; box-shadow:0 0 6px #10b981;"></span> Video Walkthrough
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Canva Embed -->
+                <div class="slide-frame slide-frame-16x9">
+                    <iframe
+                        loading="lazy"
+                        src="https://www.canva.com/design/DAHYOztH3qQ/ky7YS_aTwGBoOtCwE7U79g/watch?embed"
+                        allowfullscreen="allowfullscreen"
+                        allow="fullscreen"
+                        title="Setup 2f key authenication in FBMPrime-reg">
+                    </iframe>
+                </div>
+
+                <!-- Footer bar -->
+                <div class="slide-footer">
+                    <div class="d-flex align-items-center gap-2 flex-wrap">
+                        <span class="slide-pill"><i class="fa-solid fa-key" style="color:#10b981;"></i> 2FA Key Extraction</span>
+                        <span class="slide-pill"><i class="fa-solid fa-table" style="color:#3b82f6;"></i> Safe Table Import</span>
+                        <span class="slide-pill"><i class="fa-solid fa-shield-check" style="color:#a855f7;"></i> Account Security</span>
+                    </div>
+                    <div class="slide-credit">By <strong>Muhammad Ahmed Ali</strong></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== DEMO 11 — SCROLLING AND ACTIVITY FUNCTION ===== -->
+<section class="demo-section">
+    <div class="container" style="max-width:1000px;">
+
+        <!-- Section Heading -->
+        <div class="text-center mb-4" data-aos="fade-up">
+            <span class="sec-badge"><i class="fa-solid fa-circle me-1" style="font-size:8px; color:#f97316;"></i> Demo 11</span>
+            <h2 class="fw-extrabold text-dark display-6 mt-1 mb-2">
+                Scrolling &amp; Activity Function in <span style="background:linear-gradient(90deg,#f97316,#ef4444); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">FBMPrime Reg</span>
+            </h2>
+            <p class="text-muted fw-semibold mb-0" style="font-size:15px; letter-spacing:0.3px;">
+                ( Scroll News Feed &amp; Marketplace Safely + Auto Like &amp; Comment! )
+            </p>
+            <div class="sec-line mx-auto mt-2"></div>
+        </div>
+
+        <!-- VIDEO EMBED 11 -->
+        <div class="slide-beam-wrapper" data-aos="fade-up" data-aos-delay="100" data-aos-duration="900" style="--beam-color1:#f97316; --beam-color2:#ef4444;">
+            <div class="slide-inner">
+
+                <!-- Browser bar -->
+                <div class="slide-header">
+                    <div class="slide-dots">
+                        <div class="slide-dot dot-r"></div>
+                        <div class="slide-dot dot-y"></div>
+                        <div class="slide-dot dot-g"></div>
+                    </div>
+                    <div class="slide-title">
+                        <i class="fa-solid fa-arrows-up-down" style="color:#f97316;"></i>
+                        FBM Prime &bull; Safe Feed &amp; Marketplace Scrolling + Auto Like &amp; Comment
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="slide-status-tag">
+                            <span class="live-dot" style="background:#f97316; box-shadow:0 0 6px #f97316;"></span> Video Walkthrough
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Canva Embed -->
+                <div class="slide-frame slide-frame-16x9">
+                    <iframe
+                        loading="lazy"
+                        src="https://www.canva.com/design/DAHYO8ICguo/9eLfRAKzrfZIrNjewic1fw/watch?embed"
+                        allowfullscreen="allowfullscreen"
+                        allow="fullscreen"
+                        title="Scrolling and activity function in FBMPrime Reg">
+                    </iframe>
+                </div>
+
+                <!-- Footer bar -->
+                <div class="slide-footer">
+                    <div class="d-flex align-items-center gap-2 flex-wrap">
+                        <span class="slide-pill"><i class="fa-solid fa-arrows-up-down" style="color:#f97316;"></i> News Feed &amp; Marketplace</span>
+                        <span class="slide-pill"><i class="fa-solid fa-thumbs-up" style="color:#ef4444;"></i> Auto Like &amp; Reactions</span>
+                        <span class="slide-pill"><i class="fa-solid fa-comment-dots" style="color:#3b82f6;"></i> Human-Like Comments</span>
+                    </div>
+                    <div class="slide-credit">By <strong>Muhammad Ahmed Ali</strong></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== DEMO 12 — SOLVE 180 DAYS CHECKPOINT APPEAL ===== -->
+<section class="demo-section alt-bg">
+    <div class="container" style="max-width:1000px;">
+
+        <!-- Section Heading -->
+        <div class="text-center mb-4" data-aos="fade-up">
+            <span class="sec-badge"><i class="fa-solid fa-circle me-1" style="font-size:8px; color:#ef4444;"></i> Demo 12</span>
+            <h2 class="fw-extrabold text-dark display-6 mt-1 mb-2">
+                Solve 180 Days Checkpoint Appeal Function in <span style="background:linear-gradient(90deg,#ef4444,#f59e0b); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">FBMPrime Reg</span>
+            </h2>
+            <div class="sec-line mx-auto mt-2"></div>
+        </div>
+
+        <!-- VIDEO EMBED 12 -->
+        <div class="slide-beam-wrapper" data-aos="fade-up" data-aos-delay="100" data-aos-duration="900" style="--beam-color1:#ef4444; --beam-color2:#f59e0b;">
+            <div class="slide-inner">
+
+                <!-- Browser bar -->
+                <div class="slide-header">
+                    <div class="slide-dots">
+                        <div class="slide-dot dot-r"></div>
+                        <div class="slide-dot dot-y"></div>
+                        <div class="slide-dot dot-g"></div>
+                    </div>
+                    <div class="slide-title">
+                        <i class="fa-solid fa-triangle-exclamation" style="color:#ef4444;"></i>
+                        FBM Prime &bull; 180 Days Checkpoint Auto Appeal Function
+                    </div>
+                    <div class="d-flex align-items-center gap-2">
+                        <div class="slide-status-tag">
+                            <span class="live-dot" style="background:#ef4444; box-shadow:0 0 6px #ef4444;"></span> Video Walkthrough
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Canva Embed -->
+                <div class="slide-frame slide-frame-16x9">
+                    <iframe
+                        loading="lazy"
+                        src="https://www.canva.com/design/DAHYPBBcNkE/_1M8-1wubygj7LRyAydBTQ/watch?embed"
+                        allowfullscreen="allowfullscreen"
+                        allow="fullscreen"
+                        title="Solve 180 Days checkpoint appeal Fuction in FBMPrime Reg">
+                    </iframe>
+                </div>
+
+                <!-- Footer bar -->
+                <div class="slide-footer">
+                    <div class="d-flex align-items-center gap-2 flex-wrap">
+                        <span class="slide-pill"><i class="fa-solid fa-shield-virus" style="color:#ef4444;"></i> 180-Day Checkpoint</span>
+                        <span class="slide-pill"><i class="fa-solid fa-paper-plane" style="color:#f59e0b;"></i> Auto Appeal Submission</span>
+                        <span class="slide-pill"><i class="fa-solid fa-circle-check" style="color:#10b981;"></i> Account Recovery</span>
+                    </div>
+                    <div class="slide-credit">By <strong>Muhammad Ahmed Ali</strong></div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== MORE DEMOS COMING SOON ===== -->
+<section class="demo-section">
+    <div class="container" style="max-width:1000px;">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="sec-badge">Coming Soon</span>
+            <h2 class="fw-extrabold text-dark display-6 mt-1 mb-2">More Demo Tutorials</h2>
+            <div class="sec-line mx-auto"></div>
+            <p class="text-muted mt-3 mx-auto" style="max-width:500px; font-size:14px;">New walkthroughs are being added. Check back soon.</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="50">
+                <div class="demo-card" style="--mc:#3b82f6; --mc-light:rgba(59,130,246,0.08);">
+                    <div class="demo-card-icon"><i class="fa-solid fa-file-import"></i></div>
+                    <h5>Batch Account Importer &amp; Export</h5>
+                    <p>Import and export cookie session files, credentials, and full account sheets.</p>
+                    <span class="soon-badge" style="--mc:#3b82f6; color:#3b82f6; border-color:rgba(59,130,246,0.2); background:rgba(59,130,246,0.07);">Coming Soon</span>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="demo-card" style="--mc:#8b5cf6; --mc-light:rgba(139,92,246,0.08);">
+                    <div class="demo-card-icon"><i class="fa-solid fa-comments"></i></div>
+                    <h5>Smart Comment &amp; Story Automation</h5>
+                    <p>Automate human-like story view interactions and smart comment threads.</p>
+                    <span class="soon-badge" style="color:#8b5cf6; border-color:rgba(139,92,246,0.2); background:rgba(139,92,246,0.07);">Coming Soon</span>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="150">
+                <div class="demo-card" style="--mc:#f59e0b; --mc-light:rgba(245,158,11,0.08);">
+                    <div class="demo-card-icon"><i class="fa-solid fa-share-nodes"></i></div>
+                    <h5>Auto-Post &amp; Feed Scheduler</h5>
+                    <p>Schedule and auto-publish content across multiple pages seamlessly.</p>
+                    <span class="soon-badge" style="color:#f59e0b; border-color:rgba(245,158,11,0.2); background:rgba(245,158,11,0.07);">Coming Soon</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="py-5" style="background:var(--light-bg);">
+    <div class="container" style="max-width:860px;">
+        <div class="cta-contact-box text-center" data-aos="fade-up">
+            <h2 class="fw-extrabold text-white mb-3" style="font-family:'Space Grotesk',sans-serif; font-size:clamp(1.5rem,4vw,2.2rem);">
+                Ready to Start Automating?
+            </h2>
+            <p class="mb-4" style="color:rgba(255,255,255,0.6); font-size:15px; max-width:500px; margin:0 auto 28px; line-height:1.7;">
+                Get FBMPrime now and automate Facebook account registration, posting, and page creation — all in one tool.
+            </p>
+            <div class="d-flex align-items-center justify-content-center flex-wrap gap-3">
+                <a href="../#pricing" class="btn-fbm-primary">
+                    <i class="fa-solid fa-download"></i> Get FBMPrime Now
+                </a>
+                <a href="https://wa.me/923241703901?text=Hi!+I+want+to+know+more+about+FBM+Prime" target="_blank" rel="noopener" class="btn-wa-cta">
+                    <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+                </a>
+            </div>
+            <p class="mt-4 mb-0" style="color:rgba(255,255,255,0.3); font-size:12px;">
+                <i class="fa-solid fa-shield-halved me-1"></i> Secure &nbsp;·&nbsp;
+                <i class="fa-solid fa-headset me-1"></i> 24/7 Support &nbsp;·&nbsp;
+                <i class="fa-solid fa-bolt me-1"></i> Instant Access
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- ===== FOOTER — same as main site ===== -->
+<footer>
+    <div class="container">
+        <div class="foot-logo">FBMPrime</div>
+        <p class="mb-2">Facebook Automation Software — Demo Tutorials Page</p>
+        <p class="mb-0">
+            <a href="../">Back to Main Site</a> &nbsp;·&nbsp;
+            <a href="../#pricing">Pricing</a> &nbsp;·&nbsp;
+            <a href="https://wa.me/923241703901" target="_blank">WhatsApp Support</a>
+        </p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ once: true, duration: 700, offset: 60 });
+
+    // Back to top
+    const btt = document.getElementById('btt');
+    window.addEventListener('scroll', () => {
+        btt.classList.toggle('show', window.scrollY > 300);
+    });
+    btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+</script>
+</body>
+</html>
